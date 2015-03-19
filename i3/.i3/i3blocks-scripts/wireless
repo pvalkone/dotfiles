@@ -1,0 +1,7 @@
+#!/bin/sh
+
+IFACE=$1
+SSID="$(iw dev $IFACE link | grep SSID | cut -d " " -f 2-)"
+SIGNAL="$(iw dev $IFACE link | grep signal | cut -d " " -f 2-)"
+
+echo "${SSID} (${SIGNAL})"

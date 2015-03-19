@@ -1,0 +1,12 @@
+[user]
+	email = petteri.valkonen@iki.fi
+	name = pvalkone
+[credential]
+	helper = cache
+[alias]
+	st = status
+	pullr = pull --rebase
+[push]
+	default = simple
+[color]
+	ui = auto
