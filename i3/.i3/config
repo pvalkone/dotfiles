@@ -13,6 +13,7 @@ set $mod Mod4
 set $dmenu dmenu_run -z -fn 'Cousine-8'
 set $i3lock i3lock -fu
 set $restart-i3blocks pkill -SIGRTMIN+10 i3blocks
+set $terminal i3-sensible-terminal -tr -sh 20
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +32,7 @@ font xft:Cousine 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -tr -sh 20
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -184,7 +185,7 @@ bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute && $restart-i
 bindsym XF86AudioMute exec amixer -q sset Master toggle && $restart-i3blocks
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && $restart-i3blocks
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && $restart-i3blocks
-bindsym XF86Battery exec urxvt -title powertop -e sudo powertop
+bindsym XF86Battery exec $terminal -title powertop -e sudo powertop
 bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
 bindsym XF86ScreenSaver exec xset s activate
 bindsym XF86AudioPlay exec playerctl play-pause
