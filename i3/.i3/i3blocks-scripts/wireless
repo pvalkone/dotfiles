@@ -1,6 +1,16 @@
 #!/bin/sh
 
 IFACE=$1
+
+STATE="$(cat /sys/class/net/$IFACE/operstate)"
+
+if [ "$STATE" != "up" ]; then
+	echo "down"
+	echo "down"
+	echo "#FF0000"
+	exit 0
+fi
+
 SSID="$(iw dev $IFACE link | grep SSID | cut -d " " -f 2-)"
 SIGNAL="$(iw dev $IFACE link | grep signal | cut -d " " -f 2-)"
 
