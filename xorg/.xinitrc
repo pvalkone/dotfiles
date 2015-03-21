@@ -14,5 +14,6 @@ xset b off
 xset s 600
 [[ -f ~/.fehbg ]] && source ~/.fehbg
 unclutter -root -visible -idle 1 &
+syndaemon -tkd
 
 exec i3
