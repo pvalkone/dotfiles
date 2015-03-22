@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $dmenu dmenu_run -z -fn 'Cousine-8'
+set $dmenu dmenu_run -fn 'Cousine-8'
 set $i3lock i3lock -fu
 set $restart-i3blocks pkill -SIGRTMIN+10 i3blocks
 set $terminal i3-sensible-terminal -tr -sh 20
