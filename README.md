@@ -1,6 +1,6 @@
 These are my dotfiles. There are many like them, but these ones are mine.
 
-To install my Git configuration using [GNU Stow](https://www.gnu.org/software/stow/):
+To install my Git configuration (for example) using [GNU Stow](https://www.gnu.org/software/stow/):
 
     $ cd ~
     $ git clone https://github.com/pvalkone/dotfiles.git
