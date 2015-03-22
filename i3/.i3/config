@@ -208,3 +208,4 @@ assign [title="Slack"] 9
 assign [title="Steam*"] 10
 
 exec_always --no-startup-id xss-lock -- $i3lock
+exec redshift || redshift -l 60.1708:24.9375
