@@ -15,5 +15,6 @@ xset s 600
 [[ -f ~/.fehbg ]] && source ~/.fehbg
 unclutter -root -visible -idle 1 &
 syndaemon -tkd
+synclient TouchpadOff=1
 
 exec i3
