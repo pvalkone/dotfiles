@@ -198,6 +198,7 @@ bindsym $mod+F1		exec chromium
 bindsym $mod+F2		exec urxvt -e ranger
 bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
+bindsym $mod+F5		exec spotify
 
 # Window styles
 for_window [class="^Spotify$"] floating enable
