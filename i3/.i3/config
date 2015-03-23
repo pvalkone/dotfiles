@@ -195,7 +195,7 @@ bindsym XF86AudioStop exec mpc stop
 
 # Application shortcuts
 bindsym $mod+F1		exec chromium
-bindsym $mod+F2		exec urxvt -e ranger
+bindsym $mod+F2		exec $terminal -e ranger
 bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
 bindsym $mod+F5		exec $terminal -e ncmpcpp
