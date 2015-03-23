@@ -7,7 +7,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-[[ -f ~/.Xresources ]] && xrdb -DSOLARIZED_DARK -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 setxkbmap fi -option terminate:ctrl_alt_bksp
 [[ -f ~/.xmodmaprc ]] && xmodmap ~/.xmodmaprc
 xset b off
