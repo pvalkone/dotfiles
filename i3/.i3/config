@@ -188,20 +188,19 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && $restart-i3blocks
 bindsym XF86Battery exec $terminal -title powertop -e sudo powertop
 bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
 bindsym XF86ScreenSaver exec xset s activate
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioStop exec mpc stop
 
 # Application shortcuts
 bindsym $mod+F1		exec chromium
 bindsym $mod+F2		exec urxvt -e ranger
 bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
-bindsym $mod+F5		exec spotify
+bindsym $mod+F5		exec $terminal -e ncmpcpp
 
 # Window styles
-for_window [class="^Spotify$"] floating enable
 
 # Workspace assignments
 assign [title="Slack"] 9
