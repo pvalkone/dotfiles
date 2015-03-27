@@ -1,0 +1,17 @@
+colors_enabled           = "yes"
+song_status_format       = "$0{$8%t$9} on {$5%b$9} by {$3%a}" 
+song_columns_list_format = "(30)[green]{a} (40)[]{t|f} (30)[blue]{b}"
+now_playing_prefix       = "$b$8> $/b$9"
+now_playing_suffix       = ""
+progressbar_look         = "─  "
+progressbar_boldness     = "no"
+
+main_window_color           = "default"
+main_window_highlight_color = "default"
+progressbar_color           = "red"
+active_column_color         = "yellow"
+enable_window_title         = "yes"
+
+header_visibility    = "no"
+statusbar_visibility = "yes"
+titles_visibility    = "no"
