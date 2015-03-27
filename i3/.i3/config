@@ -200,6 +200,7 @@ bindsym $mod+F4		exec steam
 bindsym $mod+F5		exec i3-sensible-terminal -e ncmpcpp
 
 # Window styles
+for_window [class="VirtualBox"] floating enable
 
 # Workspace assignments
 assign [title="Slack"] 9
