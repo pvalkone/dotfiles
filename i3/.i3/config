@@ -13,7 +13,6 @@ set $mod Mod4
 set $dmenu dmenu_run -fn 'Cousine-8'
 set $i3lock i3lock -fu
 set $restart-i3blocks pkill -SIGRTMIN+10 i3blocks
-set $terminal i3-sensible-terminal -tr -sh 20
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -32,7 +31,7 @@ font xft:Cousine 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -185,7 +184,7 @@ bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute && $restart-i
 bindsym XF86AudioMute exec amixer -q sset Master toggle && $restart-i3blocks
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && $restart-i3blocks
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && $restart-i3blocks
-bindsym XF86Battery exec $terminal -title powertop -e sudo powertop
+bindsym XF86Battery exec i3-sensible-terminal -title powertop -e sudo powertop
 bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
 bindsym XF86ScreenSaver exec xset s activate
 bindsym XF86AudioPlay exec mpc toggle
@@ -195,10 +194,10 @@ bindsym XF86AudioStop exec mpc stop
 
 # Application shortcuts
 bindsym $mod+F1		exec chromium
-bindsym $mod+F2		exec $terminal -e ranger
+bindsym $mod+F2		exec i3-sensible-terminal -e ranger
 bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
-bindsym $mod+F5		exec $terminal -e ncmpcpp
+bindsym $mod+F5		exec i3-sensible-terminal -e ncmpcpp
 
 # Window styles
 
@@ -207,3 +206,4 @@ assign [title="Slack"] 9
 assign [title="Steam*"] 10
 
 exec_always --no-startup-id xss-lock -- $i3lock
+exec compton -b
