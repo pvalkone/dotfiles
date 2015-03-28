@@ -7,11 +7,16 @@ URxvt.visualBell: true
 URxvt.urgentOnBell: true
 URxvt.saveLines: 12000
 URxvt.iso14755: false
+URxvt.iso14755_52: false
 
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,font-size
 URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
 URxvt.colorUL: 4
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
 ! Solarized color scheme for the X Window System
 !
