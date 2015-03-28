@@ -8,6 +8,10 @@ URxvt.urgentOnBell: true
 URxvt.saveLines: 12000
 URxvt.iso14755: false
 
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: xdg-open
+URxvt.matcher.button: 1
+
 ! Solarized color scheme for the X Window System
 !
 ! http://ethanschoonover.com/solarized
