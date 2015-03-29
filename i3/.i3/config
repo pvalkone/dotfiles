@@ -198,6 +198,7 @@ bindsym $mod+F2		exec i3-sensible-terminal -e ranger
 bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
 bindsym $mod+F5		exec i3-sensible-terminal -e ncmpcpp
+bindsym $mod+F6		exec gcolor2
 
 # Window styles
 for_window [class="VirtualBox"] floating enable
