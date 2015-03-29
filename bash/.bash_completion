@@ -1,0 +1,7 @@
+# https://github.com/andersk/mosh/commit/c2ff878d48092792123fef5777e1520598346b87
+_mosh ()
+{
+    COMPREPLY=()
+    _known_hosts_real -a -- "$(_get_cword)"
+} &&
+complete -F _mosh mosh
