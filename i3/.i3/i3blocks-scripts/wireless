@@ -7,7 +7,7 @@ STATE="$(cat /sys/class/net/$IFACE/operstate)"
 if [ "$STATE" != "up" ]; then
 	echo "down"
 	echo "down"
-	echo "#FF0000"
+	echo "#DC322F"
 	exit 0
 fi
 
