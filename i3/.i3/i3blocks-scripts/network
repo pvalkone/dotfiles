@@ -19,8 +19,8 @@ INTERFACE="${BLOCK_INSTANCE:-eth0}"
 state="$(cat /sys/class/net/$INTERFACE/operstate)"
 
 if [ "$state" != "up" ]; then
-	echo "down"
-	echo "down"
+	echo "Down"
+	echo "Down"
 	echo "#DC322F"
 	exit 0
 fi
