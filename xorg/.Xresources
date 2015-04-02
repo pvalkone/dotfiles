@@ -1,6 +1,6 @@
 URxvt.scrollBar: false
 URxvt.intensityStyles: false
-URxvt.font: xft:Cousine:size=10
+URxvt.font: xft:Cousine for Powerline:size=10
 URxvt.letterSpace: -1
 URxvt.cursorBlink: true
 URxvt.visualBell: true
