@@ -191,6 +191,7 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioStop exec mpc stop
+bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
 # Application shortcuts
 bindsym $mod+F1		exec chromium
@@ -199,6 +200,7 @@ bindsym $mod+F3		exec slk
 bindsym $mod+F4		exec steam
 bindsym $mod+F5		exec i3-sensible-terminal -e ncmpcpp
 bindsym $mod+F6   exec corebird
+
 
 # Window styles
 for_window [class="VirtualBox"] floating enable
