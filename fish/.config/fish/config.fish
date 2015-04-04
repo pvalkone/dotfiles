@@ -14,3 +14,6 @@ set fish_plugins archlinux peco theme
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+set -x LESS "-R"
+set -x LESSOPEN "|~/.lessfilter %s"
