@@ -10,7 +10,7 @@ alias ls='ls --color=auto'
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:$HOME/bin
 export LESS="-R"
-export LESSOPEN="|~/.lessfilter %s"
+export LESSOPEN="| pygmentize -f terminal256 -O style=solarizeddark -g %s"
 
 source /usr/share/git/completion/git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=1

@@ -16,4 +16,4 @@ set fish_plugins archlinux peco theme
 . $fish_path/oh-my-fish.fish
 
 set -x LESS "-R"
-set -x LESSOPEN "|~/.lessfilter %s"
+set -x LESSOPEN "| pygmentize -O style=solarizeddark -f console256 -g %s"
