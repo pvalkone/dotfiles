@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias g='git'
 
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:$HOME/bin

@@ -17,3 +17,5 @@ set fish_plugins archlinux peco theme
 
 set -x LESS "-R"
 set -x LESSOPEN "| pygmentize -O style=solarizeddark -f console256 -g %s"
+
+alias g "git"
