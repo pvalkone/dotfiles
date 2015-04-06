@@ -12,6 +12,8 @@ export EDITOR=/usr/bin/vim
 export PATH=$PATH:$HOME/bin
 export LESS="-R"
 export LESSOPEN="| pygmentize -f terminal256 -O style=solarizeddark -g %s"
+export JAVA_HOME="/usr/lib/jvm/default"
+export SCALA_HOME="/usr/share/scala"
 
 source /usr/share/git/completion/git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=1

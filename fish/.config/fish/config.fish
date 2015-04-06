@@ -17,5 +17,7 @@ set fish_plugins archlinux peco theme
 
 set -x LESS "-R"
 set -x LESSOPEN "| pygmentize -O style=solarizeddark -f console256 -g %s"
+set -x JAVA_HOME "/usr/lib/jvm/default"
+set -x SCALA_HOME "/usr/share/scala"
 
 alias g "git"
