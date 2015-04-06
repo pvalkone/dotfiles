@@ -126,41 +126,41 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Border style
-new_window		none
-new_float		normal
-hide_edge_borders	both
+new_window none
+new_float normal
+hide_edge_borders both
 
 # Client colors
-# colorclass            <border>      <bg>          <text>      <indicator>
-client.focused          #6d9cbe       #6d9cbe       #f9f7f3     #b6b3eb
-client.focused_inactive #2b2b2b       #2b2b2b       #dedede     #b6b3eb
-client.unfocused        #2b2b2b       #2b2b2b       #dedede     #b6b3eb
-client.urgent           #da4939       #da4939       #f9f7f3     #b6b3eb
+# colorclass            <border> <bg>     <text>   <indicator>
+client.focused          #6d9cbe  #6d9cbe  #f9f7f3  #b6b3eb
+client.focused_inactive #2b2b2b  #2b2b2b  #dedede  #b6b3eb
+client.unfocused        #2b2b2b  #2b2b2b  #dedede  #b6b3eb
+client.urgent           #da4939  #da4939  #f9f7f3  #b6b3eb
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -194,12 +194,12 @@ bindsym XF86AudioStop exec mpc stop
 bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
 # Application shortcuts
-bindsym $mod+F1		exec chromium
-bindsym $mod+F2		exec i3-sensible-terminal -e ranger
-bindsym $mod+F3		exec slk
-bindsym $mod+F4		exec steam
-bindsym $mod+F5		exec i3-sensible-terminal -e ncmpcpp
-bindsym $mod+F6		exec corebird
+bindsym $mod+F1 exec chromium
+bindsym $mod+F2 exec i3-sensible-terminal -e ranger
+bindsym $mod+F3 exec slk
+bindsym $mod+F4 exec steam
+bindsym $mod+F5 exec i3-sensible-terminal -e ncmpcpp
+bindsym $mod+F6 exec corebird
 
 # Window styles
 for_window [class="VirtualBox"] floating enable
