@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu -i -fn 'Cousine-8'" --term="i3-sensible-terminal"
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu "rofi -dmenu -p 'run:'" --term="i3-sensible-terminal"
 
 # change focus
 bindsym $mod+j focus left
