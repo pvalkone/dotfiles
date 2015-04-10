@@ -15,6 +15,8 @@ set fish_plugins archlinux peco theme
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
+set PATH $PATH /opt/bin
+
 set -x LESS "-R"
 set -x LESSOPEN "| pygmentize -O style=solarizeddark -f console256 -g %s"
 set -x JAVA_HOME "/usr/lib/jvm/default"

@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 alias g='git'
 
 export EDITOR=/usr/bin/vim
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin:/opt/bin
 export LESS="-R"
 export LESSOPEN="| pygmentize -f terminal256 -O style=solarizeddark -g %s"
 export JAVA_HOME="/usr/lib/jvm/default"
