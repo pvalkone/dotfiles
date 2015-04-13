@@ -1,0 +1,6 @@
+[drive:PLEXTOR%20%3ABD-ROM%20PX-B120U%20%3A1.10]
+vendor = PLEXTOR
+model = BD-ROM PX-B120U
+release = 1.10
+read_offset = 696
+
