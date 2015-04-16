@@ -7,3 +7,6 @@ source /usr/local/share/git-core/contrib/completion/git-prompt.sh
 
 [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
 source /usr/local/share/bash-completion/bash_completion.sh
+
+# http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/5892
+[ "x${PWD#/usr/home/}" != "x$PWD" ] && cd /home/${PWD#/usr/home/}
