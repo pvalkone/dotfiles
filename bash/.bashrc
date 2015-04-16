@@ -10,7 +10,7 @@ source ~/.bashrc-${UNAME,,}
 
 alias g='git'
 
-export EDITOR=/usr/bin/vim
+export EDITOR=`which vim`
 export PATH=$PATH:$HOME/bin:/opt/bin
 export LESS="-R"
 export LESSOPEN="| pygmentize -f terminal256 -O style=solarizeddark -g %s"
