@@ -3,8 +3,6 @@
 #
 alias ls='ls -G'
 
-source /usr/local/share/git-core/contrib/completion/git-prompt.sh
-
 [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
 source /usr/local/share/bash-completion/bash_completion.sh
 

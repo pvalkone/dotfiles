@@ -2,5 +2,3 @@
 # Linux-specific ~/.bashrc commands
 #
 alias ls='ls --color=auto'
-
-source /usr/share/git/completion/git-prompt.sh
