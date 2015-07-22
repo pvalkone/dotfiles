@@ -1,1 +1,2 @@
-feh  --bg-scale '/home/pvalkone/Pictures/Wallpapers/8TA8Ydm.jpg' 
+#!/bin/sh
+feh  --bg-scale '/home/pvalkone/Pictures/Wallpapers/Science Fiction/peripheral1_1920.jpg' 
