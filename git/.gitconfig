@@ -10,3 +10,5 @@
 	default = simple
 [color]
 	ui = auto
+[rebase]
+	autostash = true
