@@ -21,4 +21,4 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
