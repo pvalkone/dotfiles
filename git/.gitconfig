@@ -1,14 +1,19 @@
+# vim: st=2:ts=2:et
 [user]
-	email = petteri.valkonen@iki.fi
-	name = pvalkone
+  email = petteri.valkonen@reaktor.com
+  name = Petteri Valkonen
 [credential]
-	helper = cache
+  helper = /opt/boxen/bin/boxen-git-credential
+[core]
+  excludesfile = /opt/boxen/config/git/gitignore
 [alias]
-	st = status
-	pullr = pull --rebase
+  st = status
+  pullr = pull --rebase
 [push]
-	default = simple
+  default = simple
 [color]
-	ui = auto
+  ui = auto
 [rebase]
-	autostash = true
+  autostash = true
+[hub]
+  protocol = https
