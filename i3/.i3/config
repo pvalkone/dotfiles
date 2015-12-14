@@ -197,7 +197,7 @@ bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/
 # Application shortcuts
 bindsym $mod+F1 exec chromium
 bindsym $mod+F2 exec i3-sensible-terminal -e ranger
-bindsym $mod+F3 exec slk
+bindsym $mod+F3 exec slack
 bindsym $mod+F4 exec steam
 bindsym $mod+F5 exec i3-sensible-terminal -e ncmpcpp
 bindsym $mod+F6 exec corebird
