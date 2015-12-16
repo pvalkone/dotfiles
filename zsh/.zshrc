@@ -25,3 +25,5 @@ source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 
 autoload -Uz ztodo
 chpwd() { ztodo }
+
+export LESS="-r -X"
