@@ -5,6 +5,8 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+[ -e /opt/boxen/homebrew/share/zsh-completions ] && fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 
