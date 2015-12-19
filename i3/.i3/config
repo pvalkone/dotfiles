@@ -205,7 +205,6 @@ bindsym $mod+F6 exec corebird
 # Window styles
 for_window [class="VirtualBox"] floating enable
 for_window [class="Corebird"] floating enable
-for_window [class="Chromium" instance="crx_dooidkjgncgppehpdpedmjepobonoojb"] floating enable # Sonos Controller APK
 
 # Workspace assignments
 assign [title="Slack"] 9
