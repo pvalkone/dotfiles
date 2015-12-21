@@ -1,0 +1,5 @@
+# https://github.com/jonas/tig/wiki/Bindings
+bind main B !git rebase -i %(commit)
+bind main ! !git revert %(commit)
+bind generic + !git commit --amend
+bind status D !@?rm %(file)
