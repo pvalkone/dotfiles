@@ -98,3 +98,9 @@ rofi.padding: 10
 rofi.lines: 5
 rofi.borderwidth: 0
 rofi.opacity: 90
+
+Xft.dpi:       96
+Xft.antialias: true
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintslight
