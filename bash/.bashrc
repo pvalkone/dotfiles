@@ -14,7 +14,6 @@ export EDITOR=`which vim`
 export PAGER=`which less`
 export PATH=$PATH:$HOME/bin:/opt/bin
 export LESS="-R"
-export LESSOPEN="| pygmentize -f terminal256 -O style=solarizeddark -g %s"
 export JAVA_HOME="/usr/lib/jvm/default"
 export SCALA_HOME="/usr/share/scala"
 
