@@ -476,7 +476,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<false/>
 	<key>HighlightTabLabels</key>
@@ -506,7 +506,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/my/dotfiles/iterm2_profile</string>
+	<string>~/my/dotfiles/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -535,9 +535,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>818 200 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>438 234 605 485 0 0 1440 900 </string>
+	<string>438 234 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>162 91 650 523 0 0 1440 900 </string>
+	<string>162 91 665 523 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1269,7 +1269,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>469191817.95314699</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>471956175.28266603</real>
+	<real>473086480.187738</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1316,7 +1316,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/pvalkone/my/dotfiles/iterm2_profile</string>
+	<string>/Users/pvalkone/my/dotfiles/iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1334,7 +1334,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-16T10:55:45Z</date>
+	<date>2015-12-29T12:54:38Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
