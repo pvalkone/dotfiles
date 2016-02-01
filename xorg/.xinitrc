@@ -16,6 +16,7 @@ if [ -f ~/.xmodmaprc ]; then
 fi
 xset b off
 xset s 600
+xhost +si:localuser:root
 if [ -f ~/.fehbg ]; then
   . ~/.fehbg
 fi
