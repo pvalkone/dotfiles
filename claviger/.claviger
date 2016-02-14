@@ -1,0 +1,28 @@
+keys: 
+  x220:
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxnjsV74ewa7z78QNMbcWS+F8p7gyrjve9nceVhZMvt pvalkone@x220
+  x220-rsa:
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSlfzaqfymIQgLlaD3zXk9dijiS9j7nCMc1cnaCZlY/T3oH3iQQj2clK4mFzqRj+qWkJKF8EO6SBMohz/ixJkwl4R5qgyB25/cAK9PvadAwTZFNrzPoFAW5XJ9q37q8QFBPCpb2fqqi9megRZKUkBjtGo52DdHREe6ZiJW9brCMZE2nCLlGzl7zlmrFSDqlT/8LPnqxSm2F1lP1gFMRPof3km9a6PNZQQke5dJdnF5Y6pqTMRvIgb0gVwUtNNaUJtfR3LmMHAfkXMbJp5+pE6QSunaJVAL7Umjgqi+jb2NEUYgs/jQtQmArr+v+XEIxyD1RWHS8cFFWWPSdgY6mFUB pvalkone@x220
+
+servers:
+  $any:
+    user: pvalkone
+  $dropbear:
+    like: $any
+    present:
+      - x220-rsa
+  $openssh:
+    like: $any
+    present:
+      - x220
+  uk:
+    like: $dropbear
+    port: 10022
+  raspberrypi:
+    like: $dropbear
+    user: pi
+  unas:
+    like: $openssh
+  sharkoon:
+    like: $openssh
+    port: 10022
