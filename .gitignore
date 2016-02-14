@@ -1,3 +1,7 @@
+get_iplayer/.get_iplayer/cookies.desktop    
+get_iplayer/.get_iplayer/download_history                                 
+get_iplayer/.get_iplayer/plugins
+get_iplayer/.get_iplayer/*.cache
 ncmpcpp/.ncmpcpp/error.log
 ranger/.config/ranger/bookmarks
 ranger/.config/ranger/history
