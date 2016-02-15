@@ -48,3 +48,5 @@ if [ $? -eq 0 ]; then
 fi
 
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
+
+alias yle-dl="yle-dl --destdir \"$(xdg-user-dir DOWNLOAD)/Yle Areena\""
