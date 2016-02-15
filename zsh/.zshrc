@@ -38,10 +38,13 @@ chpwd() { ztodo }
 
 export LESS="-r -X"
 
-NVM_PREFIX=$(brew --prefix nvm)
-if [[ -d $NVM_PREFIX ]]; then
-  export NVM_DIR=~/.nvm
-  source $NVM_PREFIX/nvm.sh
+/usr/bin/which -s brew
+if [ $? -eq 0 ]; then
+  NVM_PREFIX=$(brew --prefix nvm)
+  if [[ -d $NVM_PREFIX ]]; then
+    export NVM_DIR=~/.nvm
+    source $NVM_PREFIX/nvm.sh
+  fi
 fi
 
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
