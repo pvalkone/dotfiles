@@ -9,3 +9,4 @@ ranger/.config/ranger/tagged
 ssh/.ssh/authorized_keys
 ssh/.ssh/id_*
 ssh/.ssh/known_hosts
+zsh/.zsh-secrets
