@@ -44,4 +44,4 @@ if [[ -d $NVM_PREFIX ]]; then
   source $NVM_PREFIX/nvm.sh
 fi
 
-source $HOME/.zsh-secrets
+[ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
