@@ -196,8 +196,6 @@ bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/
 # Application shortcuts
 bindsym $mod+F1 exec chrome
 bindsym $mod+F2 exec i3-sensible-terminal -e ranger
-bindsym $mod+F3 exec slack
-bindsym $mod+F4 exec steam
 bindsym $mod+F5 exec i3-sensible-terminal -e ncmpcpp
 bindsym $mod+F6 exec corebird
 
@@ -206,8 +204,6 @@ for_window [class="VirtualBox"] floating enable
 for_window [class="Corebird"] floating enable
 
 # Workspace assignments
-assign [title="Slack"] 9
-assign [title="Steam*"] 10
 
 # Gaps
 # https://github.com/Airblader/i3#gaps
