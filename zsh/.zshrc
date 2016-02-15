@@ -37,3 +37,9 @@ autoload -Uz ztodo
 chpwd() { ztodo }
 
 export LESS="-r -X"
+
+NVM_PREFIX=$(brew --prefix nvm)
+if [[ -d $NVM_PREFIX ]]; then
+  export NVM_DIR=~/.nvm
+  source $NVM_PREFIX/nvm.sh
+fi
