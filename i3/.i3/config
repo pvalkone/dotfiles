@@ -254,4 +254,4 @@ mode "$mode_gaps_outer" {
 }
 
 exec_always --no-startup-id xss-lock -- $i3lock
-exec compton -b
+exec_always compton -b
