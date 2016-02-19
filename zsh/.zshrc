@@ -37,6 +37,7 @@ export LESS="-r -X"
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 /usr/bin/which -s brew
 if [ $? -eq 0 ]; then
