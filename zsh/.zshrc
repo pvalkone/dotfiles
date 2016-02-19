@@ -29,14 +29,14 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 DEFAULT_USER=$(whoami)
 source $ZSH/oh-my-zsh.sh
 
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
-[ -f /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 autoload -Uz ztodo
 chpwd() { ztodo }
 
 export LESS="-r -X"
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
 
 /usr/bin/which -s brew
 if [ $? -eq 0 ]; then
@@ -47,4 +47,4 @@ if [ $? -eq 0 ]; then
   fi
 fi
 
-[ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
+
