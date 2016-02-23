@@ -89,16 +89,6 @@ URxvt*color13:                 S_violet
 URxvt*color14:                 S_base1
 URxvt*color15:                 S_base3
 
-rofi.foreground: S_base0
-rofi.background: S_base03
-rofi.highlightfg: S_green
-rofi.highlightbg: S_base02 
-rofi.font: Cousine 10
-rofi.padding: 10
-rofi.lines: 5
-rofi.borderwidth: 0
-rofi.opacity: 90
-
 Xft.dpi:       96
 Xft.antialias: true
 Xft.rgba:      rgb
