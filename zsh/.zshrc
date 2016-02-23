@@ -29,8 +29,12 @@ export LESS="-r -X"
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-/usr/bin/which -s brew
-if [ $? -eq 0 ]; then
+binary_exists() {
+  /usr/bin/which -s $1
+  echo $?
+}
+
+if [ $(binary_exists "brew") -eq 0 ]; then
   NVM_PREFIX=$(brew --prefix nvm)
   if [[ -d $NVM_PREFIX ]]; then
     export NVM_DIR=~/.nvm
