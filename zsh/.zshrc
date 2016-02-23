@@ -1,11 +1,9 @@
 export TERM="xterm-256color"
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -e
-# End of lines configured by zsh-newuser-install
 
 # Oh-My-ZSH
 plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev zsh-completions zsh-syntax-highlighting)
