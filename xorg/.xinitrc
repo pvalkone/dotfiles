@@ -22,6 +22,5 @@ if [ -f ~/.fehbg ]; then
 fi
 unclutter -root -visible -idle 1 &
 redshift || redshift -l 60.1708:24.9375 &
-dunst &
 
 exec i3
