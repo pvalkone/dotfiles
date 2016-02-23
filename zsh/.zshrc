@@ -7,17 +7,8 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-[ -e /opt/boxen/homebrew/share/zsh-completions ] && fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
-
-# The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
 # Oh-My-ZSH
-plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev zsh-syntax-highlighting)
+plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev zsh-completions zsh-syntax-highlighting)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -28,6 +19,8 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 DEFAULT_USER=$(whoami)
 source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
 
 autoload -Uz ztodo
 chpwd() { ztodo }
@@ -46,5 +39,3 @@ if [ $? -eq 0 ]; then
     source $NVM_PREFIX/nvm.sh
   fi
 fi
-
-
