@@ -42,4 +42,10 @@ if [ $(binary_exists "brew") -eq 0 ]; then
   fi
 fi
 
-alias yle-dl="yle-dl --destdir \"$(xdg-user-dir DOWNLOAD)/Yle Areena\""
+if [ $(binary_exists "xdg-user-dir") -eq 0 ]; then
+  DOWNLOAD_DIR=$(xdg-user-dir DOWNLOAD)
+else
+  DOWNLOAD_DIR="$HOME/Downloads"
+fi
+
+alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\""
