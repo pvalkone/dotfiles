@@ -17,7 +17,7 @@ compinit
 # End of lines added by compinstall
 
 # Oh-My-ZSH
-plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev)
+plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev zsh-syntax-highlighting)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -35,7 +35,6 @@ chpwd() { ztodo }
 export LESS="-r -X"
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-[ -f /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/boxen/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
