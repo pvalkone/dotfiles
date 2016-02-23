@@ -7,15 +7,20 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+if [ -f ~/.Xresources ]; then
+  xrdb -merge ~/.Xresources
+fi
 setxkbmap fi -option terminate:ctrl_alt_bksp
-[[ -f ~/.xmodmaprc ]] && xmodmap ~/.xmodmaprc
+if [ -f ~/.xmodmaprc ]; then
+  xmodmap ~/.xmodmaprc
+fi
 xset b off
 xset s 600
-[[ -f ~/.fehbg ]] && source ~/.fehbg
+xhost +si:localuser:root
+if [ -f ~/.fehbg ]; then
+  . ~/.fehbg
+fi
 unclutter -root -visible -idle 1 &
-syndaemon -tkd
-synclient TouchpadOff=1
 redshift || redshift -l 60.1708:24.9375 &
 
 exec i3

@@ -37,3 +37,5 @@ if [ $? -eq 0 ]; then
     source $NVM_PREFIX/nvm.sh
   fi
 fi
+
+alias yle-dl="yle-dl --destdir \"$(xdg-user-dir DOWNLOAD)/Yle Areena\""
