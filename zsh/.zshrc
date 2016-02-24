@@ -6,7 +6,7 @@ SAVEHIST=1000
 bindkey -e
 
 # Oh-My-ZSH
-plugins=(brew brew-cask history-substring-search lein mosh osx sbt scala sudo yle-dev zsh-completions zsh-syntax-highlighting)
+plugins=(brew brew-cask lein mosh osx sbt scala sudo yle-dev zsh-completions zsh-syntax-highlighting history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -19,6 +19,10 @@ DEFAULT_USER=$(whoami)
 source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
+
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 autoload -Uz ztodo
 chpwd() { ztodo }
