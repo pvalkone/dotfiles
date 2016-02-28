@@ -21,6 +21,8 @@ if [ -f ~/.fehbg ]; then
   . ~/.fehbg
 fi
 unclutter -root -visible -idle 1 &
-redshift || redshift -l 60.1708:24.9375 &
+
+LOCATION=$(curl --silent --fail ipinfo.io/loc | tr ',' ':')
+redshift -l ${LOCATION:=60.1708:24.9375} &
 
 exec i3
