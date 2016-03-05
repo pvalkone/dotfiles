@@ -58,3 +58,4 @@ alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-
 
 setopt noclobber
 setopt nocheckjobs
+setopt interactivecomments
