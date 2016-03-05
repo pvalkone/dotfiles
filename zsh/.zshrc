@@ -57,3 +57,4 @@ alias verify-permissions="sudo /usr/libexec/repair_packages --verify --standard-
 alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
 
 setopt noclobber
+setopt nocheckjobs
