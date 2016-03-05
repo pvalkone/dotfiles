@@ -55,3 +55,5 @@ fi
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\""
 alias verify-permissions="sudo /usr/libexec/repair_packages --verify --standard-pkgs /"
 alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
+
+setopt noclobber
