@@ -53,6 +53,7 @@ else
 fi
 
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\""
+alias g="git"
 
 if [[ $(uname -s) == 'Darwin' ]]; then
   alias verify-permissions="sudo /usr/libexec/repair_packages --verify --standard-pkgs /"
