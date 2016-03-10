@@ -9,6 +9,7 @@
 [alias]
   st = status
   pullr = pull --rebase
+  unstage = reset HEAD --
 [push]
   default = simple
 [color]
