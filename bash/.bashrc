@@ -12,7 +12,6 @@ alias g='git'
 
 export EDITOR=`which vim`
 export PAGER=`which less`
-export PATH=$PATH:$HOME/bin:/opt/bin
 export LESS="-r -X"
 export JAVA_HOME="/usr/lib/jvm/default"
 export SCALA_HOME="/usr/share/scala"
