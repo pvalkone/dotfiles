@@ -2,6 +2,10 @@
 # ~/.bashrc
 #
 
+if [ -f ~/bin/sensible.bash ]; then
+   source ~/bin/sensible.bash
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
