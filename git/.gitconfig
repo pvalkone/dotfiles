@@ -10,6 +10,7 @@
   st = status
   pullr = pull --rebase
   unstage = reset HEAD --
+  last = log -1 --stat
 [push]
   default = simple
 [color]
