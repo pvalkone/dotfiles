@@ -2,6 +2,7 @@ get_iplayer/.get_iplayer/cookies.desktop
 get_iplayer/.get_iplayer/download_history                                 
 get_iplayer/.get_iplayer/plugins
 get_iplayer/.get_iplayer/*.cache
+leiningen/.lein/repl-history
 mopidy/.config/mopidy/soundcloud.conf
 ncmpcpp/.ncmpcpp/error.log
 ranger/.config/ranger/bookmarks
