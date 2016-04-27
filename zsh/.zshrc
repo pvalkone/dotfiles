@@ -43,6 +43,8 @@ if [ $(binary_exists "brew") -eq 0 ]; then
     export NVM_DIR=~/.nvm
     source $NVM_PREFIX/nvm.sh
   fi
+
+  export HOMEBREW_NO_ANALYTICS=1
 fi
 
 if [ $(binary_exists "xdg-user-dir") -eq 0 ]; then
