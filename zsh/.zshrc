@@ -45,6 +45,7 @@ if [ $(binary_exists "brew") -eq 0 ]; then
   fi
 
   export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_CACHE="/opt/boxen/cache/homebrew"
 fi
 
 if [ $(binary_exists "xdg-user-dir") -eq 0 ]; then
