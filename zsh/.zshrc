@@ -67,3 +67,6 @@ setopt nocheckjobs
 setopt interactivecomments
 
 zstyle ':urlglobber' url-other-schema
+
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
