@@ -11,6 +11,7 @@
   pullr = pull --rebase
   unstage = reset HEAD --
   last = log -1 --stat
+  dt = difftool
 [push]
   default = simple
 [color]
