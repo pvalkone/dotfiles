@@ -1,7 +1,7 @@
 export TERM="xterm-256color"
 
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=$HISTSIZE
 bindkey -e
 
 # Oh-My-ZSH
