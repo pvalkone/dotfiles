@@ -20,3 +20,9 @@
   autostash = true
 [hub]
   protocol = https
+[diff]
+  tool = ksdiff
+[difftool "ksdiff"]
+  cmd = "ksdiff $LOCAL $REMOTE"
+[difftool]
+  prompt = false
