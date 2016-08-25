@@ -31,6 +31,7 @@ export LESS="-r -X"
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+[ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
 
 binary_exists() {
   /usr/bin/which -s $1
