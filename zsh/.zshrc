@@ -57,7 +57,7 @@ else
   DOWNLOAD_DIR="$HOME/Downloads"
 fi
 
-alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\""
+alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --postprocess /usr/local/share/yle-dl/muxmp4"
 alias g="git"
 
 if [[ $(uname -s) == 'Darwin' ]]; then
