@@ -21,8 +21,8 @@
 [hub]
   protocol = https
 [diff]
-  tool = ksdiff
-[difftool "ksdiff"]
-  cmd = "ksdiff $LOCAL $REMOTE"
+  tool = icdiff
+[difftool "icdiff"]
+  cmd = "icdiff $LOCAL $REMOTE"
 [difftool]
   prompt = false
