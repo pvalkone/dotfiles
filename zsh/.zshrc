@@ -65,6 +65,10 @@ if [[ $(uname -s) == 'Darwin' ]]; then
   alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
 fi
 
+if [[ $(uname -s) == 'FreeBSD' ]]; then
+  alias pnotes="date -v -4w +%Y%m%d | xargs pkg updating --date"
+fi
+
 setopt noclobber
 setopt nocheckjobs
 setopt interactivecomments
