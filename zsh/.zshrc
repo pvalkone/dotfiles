@@ -49,6 +49,8 @@ if [ $(binary_exists "brew") -eq 0 ]; then
   export HOMEBREW_CACHE="/opt/boxen/cache/homebrew"
   export CASKROOM="/opt/homebrew-cask/Caskroom"
   export HOMEBREW_CASK_OPTS="--caskroom=$CASKROOM --appdir=/Applications"
+
+  alias b="brew"
 fi
 
 if [ $(binary_exists "xdg-user-dir") -eq 0 ]; then
