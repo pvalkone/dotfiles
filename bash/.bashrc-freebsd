@@ -2,6 +2,7 @@
 # FreeBSD-specific ~/.bashrc commands
 #
 alias ls='ls -G'
+alias free='freecolor -o'
 
 [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
 source /usr/local/share/bash-completion/bash_completion.sh
