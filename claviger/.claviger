@@ -3,7 +3,10 @@ keys:
     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxnjsV74ewa7z78QNMbcWS+F8p7gyrjve9nceVhZMvt pvalkone@x220
   x220-rsa:
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSlfzaqfymIQgLlaD3zXk9dijiS9j7nCMc1cnaCZlY/T3oH3iQQj2clK4mFzqRj+qWkJKF8EO6SBMohz/ixJkwl4R5qgyB25/cAK9PvadAwTZFNrzPoFAW5XJ9q37q8QFBPCpb2fqqi9megRZKUkBjtGo52DdHREe6ZiJW9brCMZE2nCLlGzl7zlmrFSDqlT/8LPnqxSm2F1lP1gFMRPof3km9a6PNZQQke5dJdnF5Y6pqTMRvIgb0gVwUtNNaUJtfR3LmMHAfkXMbJp5+pE6QSunaJVAL7Umjgqi+jb2NEUYgs/jQtQmArr+v+XEIxyD1RWHS8cFFWWPSdgY6mFUB pvalkone@x220
-
+  work:
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCidQGmSVcIsojufrGwhWwNU5DnlU/FZA/Jh2yMNTqB1KBCVb/MlAyUuAe5IAXEGoZmbhozzCfgl/U/Ss98YUEfG/+ivfCtHrETErG5XLlN78wh2BI0GGpAhebFooLtYKhVTMtzRVh/auKIORyyZ6T0gTos7HvXjHorPr2+SLDOvU7nKOzLz+KiMtFCvxxktwno5YFYjE0Lr7PH2Zanj+NNpC2u0UfNm42p+POyy+kitrpsVjvdLNkWepYCTvieAYjOOtcV9Qzc8A5nGIz4pW0Fc0o13itfD1uuHesJi3PNL4UnzftrKBd4rX6BTdAvndj0Bpe9vPuLNnkdXLxq6g9p /Users/pvalkone/.ssh/id_rsa
+  prompt:
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXDSlfoU9W8quQfIkXCN1owckHbGU+vLu5YWcRuxXD34qq1MxT4uW+S06uxNzXEfU4F0blsK018my3A1AMQrc42me43/+s+PfXfHIFAb/ooeyuz5tfxSq9k1lYO/qHqlUJKyjrxnhS4z8NRq9fHSKLntTVWliY2NHfeQx8C2rmxivexcruYduvGtdtK++HlEePLAu0xUO5FRHwJ6k62BUgrcvWRRRWX+WP/t0JZFZS+rhamwkoK5oUpI/wpefhHxZ6w9M7rkL+7APrKDTTc8cM4Pb+vUvAN5hDYaUAvKq3sqLXW1g3crKZ8A/25InwswDKVT7cE1uB1P+gpRp7WXm/ iOS Prompt.app
 servers:
   $any:
     user: pvalkone
@@ -15,14 +18,19 @@ servers:
     like: $any
     present:
       - x220
-  uk:
+      - work
+      - prompt
+  uk-old:
     like: $dropbear
     port: 10022
   raspberrypi:
     like: $dropbear
     user: pi
-  unas:
-    like: $openssh
   sharkoon:
     like: $openssh
     port: 10022
+  uk:
+    like: $openssh
+  nl:
+    user: freebsd
+    like: $openssh
