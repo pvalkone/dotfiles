@@ -1,5 +1,7 @@
 {:user {:plugins [[lein-ancient "0.6.8"]
-                  [lein-auto "0.1.2"]]}
+                  [lein-auto "0.1.2"]
+                  [lein-autoreload "0.1.1"]
+                  [venantius/ultra "0.5.0"]]}
         :dependencies [[org.clojure/tools.trace "0.7.9"]
                        [clj-stacktrace "0.2.8"]]
         :repl-options {:init (do
