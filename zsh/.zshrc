@@ -81,3 +81,5 @@ bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
 path+=('/opt/bin')
+
+export GOPATH=${HOME}/.go
