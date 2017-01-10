@@ -1,0 +1,19 @@
+set font     = -monotype-cousine-medium-r-normal--11-0-0-0-m-0-iso8859-1
+set color    = #eee8d5 #2b2b2b #eee8d5 #2b2b2b #e6e1dc #5a647e
+set geometry = 1366x17+0+0
+set border   = 0px
+set bangchar = !
+set autocomp = 2
+set list     = true
+set last     = true
+set margin   = -80
+
+bang !       = st -f "Input Mono:size=9" -e %s
+bang man     = st -f "Input Mono:size=9" -e man %s
+bang www     = chrome %s
+bang pdf     = mupdf %s
+bang g       = chrome "https://google.fi/#q=%s"
+bang fp      = chrome "https://www.freshports.org/search.php?query=%s"
+
+tab default  = percontation "%s" %s | sort -u
+tab ?        = ignore="%s%s"; awk '/^bang/ {print "!"" ";}' ~/.interrobangrc
