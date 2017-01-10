@@ -191,13 +191,6 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioStop exec mpc stop
 bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
-# Application shortcuts
-bindsym $mod+F1 exec chrome
-bindsym $mod+F2 exec i3-sensible-terminal -e ranger
-bindsym $mod+F3 exec i3-sensible-terminal -e glances
-bindsym $mod+F4 exec nightcode
-bindsym $mod+F5 exec i3-sensible-terminal -e ncmpcpp
-
 # Window styles
 for_window [class="VirtualBox"] floating enable
 
