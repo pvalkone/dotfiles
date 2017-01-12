@@ -26,3 +26,5 @@
   cmd = "icdiff $LOCAL $REMOTE"
 [difftool]
   prompt = false
+[commit]
+  verbose = true
