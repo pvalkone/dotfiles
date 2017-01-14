@@ -23,7 +23,7 @@
 [diff]
   tool = icdiff
 [difftool "icdiff"]
-  cmd = "icdiff $LOCAL $REMOTE"
+  cmd = "icdiff -N $LOCAL $REMOTE"
 [difftool]
   prompt = false
 [commit]
