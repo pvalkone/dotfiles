@@ -17,6 +17,7 @@ use warnings;
 # libjson-perl on Debian/Ubuntu.
 use JSON;
 use BSD::Sysctl 'sysctl';
+use POSIX;
 
 # Don’t buffer any output.
 $| = 1;
@@ -29,6 +30,9 @@ print scalar <STDIN>;
 
 # Read lines forever, ignore a comma at the beginning if it exists.
 while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
+    my $battery_percentage = sysctl('hw.acpi.battery.life');
+    my $battery_symbol = (sysctl('hw.acpi.battery.state') == 2) ? "\x{f1e6}" : chr(hex("0xf" . (244 - ceil($battery_percentage / 25))));
+    my $battery_minutes = sysctl('hw.acpi.battery.time');
     my $brightness = sysctl('hw.acpi.video.lcd0.brightness');
     # Decode the JSON-encoded line.
     my @blocks = @{decode_json($statusline)};
@@ -36,6 +40,14 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
     # Prefix our own information (you could also suffix or insert in the
     # middle).
     splice @blocks, 6, 0, ({
+        full_text => sprintf("%s %d%% %02d:%02d",
+                             $battery_symbol,
+                             $battery_percentage,
+                             ($battery_minutes / 60) % 24,
+                             $battery_minutes % 60),
+        name => 'battery'
+    },
+    {
         full_text => "\x{f185} $brightness%",
         name => 'brightness'
     });
