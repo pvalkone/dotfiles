@@ -28,10 +28,14 @@ print scalar <STDIN>;
 # The second line contains the start of the infinite array.
 print scalar <STDIN>;
 
+sub is_battery_charging {
+  return sysctl('hw.acpi.battery.state') == 2;
+}
+
 # Read lines forever, ignore a comma at the beginning if it exists.
 while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
     my $battery_percentage = sysctl('hw.acpi.battery.life');
-    my $battery_symbol = (sysctl('hw.acpi.battery.state') == 2) ? "\x{f1e6}" : chr(hex("0xf" . (244 - ceil($battery_percentage / 25))));
+    my $battery_symbol = is_battery_charging() ? "\x{f1e6}" : chr(hex("0xf" . (244 - ceil($battery_percentage / 25))));
     my $battery_minutes = sysctl('hw.acpi.battery.time');
     my $brightness = sysctl('hw.acpi.video.lcd0.brightness');
     # Decode the JSON-encoded line.
