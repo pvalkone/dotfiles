@@ -43,8 +43,8 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
         full_text => sprintf("%s %d%% %02d:%02d",
                              $battery_symbol,
                              $battery_percentage,
-                             ($battery_minutes / 60) % 24,
-                             $battery_minutes % 60),
+                             ($battery_minutes > 0 ? ($battery_minutes / 60) % 24 : 0),
+                             ($battery_minutes > 0 ? $battery_minutes % 60 : 0)),
         name => 'battery'
     },
     {
