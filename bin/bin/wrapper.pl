@@ -32,6 +32,14 @@ sub is_battery_discharging {
     return sysctl('hw.acpi.battery.state') == 1;
 }
 
+sub battery_time {
+    my $battery_minutes = shift;
+    return sprintf("%02d:%02d",
+                   ($battery_minutes > 0 ? ($battery_minutes / 60) % 24 : 0),
+                   ($battery_minutes > 0 ? $battery_minutes % 60 : 0));
+}
+
+
 # Read lines forever, ignore a comma at the beginning if it exists.
 while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
     my $battery_percentage = sysctl('hw.acpi.battery.life');
@@ -47,8 +55,7 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
         full_text => sprintf("%s %d%% %02d:%02d",
                              $battery_symbol,
                              $battery_percentage,
-                             ($battery_minutes > 0 ? ($battery_minutes / 60) % 24 : 0),
-                             ($battery_minutes > 0 ? $battery_minutes % 60 : 0)),
+                             battery_time($battery_minutes)),
         name => 'battery'
     },
     {
