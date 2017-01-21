@@ -14,6 +14,7 @@ bang www     = chrome %s
 bang pdf     = mupdf %s
 bang g       = chrome "https://google.fi/#q=%s"
 bang fp      = chrome "https://www.freshports.org/search.php?query=%s"
+bang ddg     = chrome "https://duckduckgo.com/?q=%s"
 
 tab default  = percontation "%s" %s | sort -u
 tab ?        = ignore="%s%s"; awk '/^bang/ {print "!"" ";}' ~/.interrobangrc
