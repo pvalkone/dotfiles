@@ -71,7 +71,7 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
         name => 'battery'
     },
     {
-        full_text => "\x{f042} $brightness%",
+        full_text => "\x{f0eb} $brightness%",
         name => 'brightness'
     });
 
