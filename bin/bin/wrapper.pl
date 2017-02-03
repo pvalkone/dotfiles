@@ -51,8 +51,8 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
 
     # Prefix our own information (you could also suffix or insert in the
     # middle).
-    splice @blocks, 6, 0, ({
-        full_text => sprintf("%s %d%% %02d:%02d",
+    splice @blocks, 5, 0, ({
+        full_text => sprintf("%s %d%% %s",
                              $battery_symbol,
                              $battery_percentage,
                              battery_time($battery_minutes)),
