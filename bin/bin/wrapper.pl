@@ -28,6 +28,10 @@ print scalar <STDIN>;
 # The second line contains the start of the infinite array.
 print scalar <STDIN>;
 
+sub is_volume_muted {
+    return sysctl('dev.acpi_ibm.0.mute') == 1;
+}
+
 sub is_battery_discharging {
     return sysctl('hw.acpi.battery.state') == 1;
 }
@@ -42,6 +46,8 @@ sub battery_time {
 
 # Read lines forever, ignore a comma at the beginning if it exists.
 while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
+    my $volume_symbol = is_volume_muted() ? "\x{f026}" : "\x{f028}";
+    my ($volume_percentage) = `/usr/sbin/mixer vol` =~ m/.*:(\d+)$/i;
     my $battery_percentage = sysctl('hw.acpi.battery.life');
     my $battery_symbol = is_battery_discharging() ? chr(hex("0xf" . (244 - ceil($battery_percentage / 25)))) : "\x{f1e6}";
     my $battery_minutes = sysctl('hw.acpi.battery.time');
@@ -52,6 +58,12 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
     # Prefix our own information (you could also suffix or insert in the
     # middle).
     splice @blocks, 5, 0, ({
+        full_text => sprintf("%s %d%%",
+                             $volume_symbol,
+                             $volume_percentage),
+        name => 'volume'
+    },
+    {
         full_text => sprintf("%s %d%% %s",
                              $battery_symbol,
                              $battery_percentage,
