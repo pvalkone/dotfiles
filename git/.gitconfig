@@ -23,7 +23,7 @@
 [diff]
   tool = icdiff
 [difftool "icdiff"]
-  cmd = "icdiff -N $LOCAL $REMOTE"
+  cmd = "icdiff --line-numbers $LOCAL $REMOTE"
 [difftool]
   prompt = false
 [commit]
