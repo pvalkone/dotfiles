@@ -9,3 +9,4 @@ set modelines=5
 set cursorline
 filetype indent on
 set wildmenu
+set lazyredraw
