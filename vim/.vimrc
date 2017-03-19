@@ -10,3 +10,4 @@ set cursorline
 filetype indent on
 set wildmenu
 set lazyredraw
+set showmatch
