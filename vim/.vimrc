@@ -11,3 +11,5 @@ filetype indent on
 set wildmenu
 set lazyredraw
 set showmatch
+set incsearch
+set hlsearch
