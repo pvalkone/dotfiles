@@ -3,6 +3,7 @@ set color    = #eee8d5 #2b2b2b #eee8d5 #2b2b2b #e6e1dc #5a647e
 set geometry = 1366x17+0+0
 set border   = 0px
 set bangchar = !
+set run_hook = PATH="${HOME}/bin:${PATH}" %s
 set autocomp = 2
 set list     = true
 set last     = true
