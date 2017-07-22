@@ -32,6 +32,7 @@ export LESS="-r -X"
 [ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 [ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
+[ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
 
 binary_exists() {
   /usr/bin/which -s $1
