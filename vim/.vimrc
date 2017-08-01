@@ -13,3 +13,4 @@ set lazyredraw
 set showmatch
 set incsearch
 set hlsearch
+set formatoptions-=cro
