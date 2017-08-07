@@ -60,17 +60,20 @@ else
   DOWNLOAD_DIR="$HOME/Downloads"
 fi
 
-alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --postprocess /usr/local/share/yle-dl/muxmp4"
 alias g="git"
 
 if [[ $(uname -s) == 'Darwin' ]]; then
   alias verify-permissions="sudo /usr/libexec/repair_packages --verify --standard-pkgs /"
   alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
+  POSTPROCESS_SCRIPT_DIR=$HOME/bin
 fi
 
 if [[ $(uname -s) == 'FreeBSD' ]]; then
   alias pnotes="date -v -4w +%Y%m%d | xargs pkg updating --date"
+  POSTPROCESS_SCRIPT_DIR=/usr/local/share/yle-dl
 fi
+
+alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --postprocess $POSTPROCESS_SCRIPT_DIR/muxmp4"
 
 setopt noclobber
 setopt nocheckjobs
