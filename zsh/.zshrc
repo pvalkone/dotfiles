@@ -74,7 +74,7 @@ if [[ $(uname -s) == 'FreeBSD' ]]; then
 fi
 
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --postprocess $POSTPROCESS_SCRIPT_DIR/muxmp4"
-alias ag-clj="ag -G '.clj$'"
+alias ag-clj="ag -G '.cljs?$'"
 alias ag-scala="ag -G '.scala$'"
 
 setopt noclobber
