@@ -70,6 +70,9 @@ fi
 
 if [[ $(uname -s) == 'FreeBSD' ]]; then
   alias pnotes="date -v -4w +%Y%m%d | xargs pkg updating --date"
+  # Enable VAAPI video output and hardware accelerated decoding
+  # See: https://unrelenting.technology/articles/freebsd-on-the-thinkpad-x240
+  alias mpv="mpv --vo=vaapi --hwdec=vaapi"
   POSTPROCESS_SCRIPT_DIR=/usr/local/share/yle-dl
 fi
 
