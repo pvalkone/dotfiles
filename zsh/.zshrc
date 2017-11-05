@@ -79,6 +79,13 @@ fi
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --postprocess $POSTPROCESS_SCRIPT_DIR/muxmp4"
 alias ag-clj="ag -G '.cljs?$'"
 alias ag-scala="ag -G '.scala$'"
+alias rg="rg --colors line:fg:yellow \
+	--colors line:style:bold \
+	--colors path:fg:green \
+	--colors path:style:bold \
+	--colors match:fg:black \
+	--colors match:bg:yellow \
+	--colors match:style:nobold"
 
 setopt noclobber
 setopt nocheckjobs
