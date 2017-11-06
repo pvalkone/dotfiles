@@ -48,8 +48,7 @@ if [ $(binary_exists "brew") -eq 0 ]; then
 
   export HOMEBREW_NO_ANALYTICS=1
   export HOMEBREW_CACHE="/opt/boxen/cache/homebrew"
-  export CASKROOM="/opt/homebrew-cask/Caskroom"
-  export HOMEBREW_CASK_OPTS="--caskroom=$CASKROOM --appdir=/Applications"
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
   alias b="brew"
 fi
