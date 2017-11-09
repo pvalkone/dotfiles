@@ -7,4 +7,8 @@
         :repl-options {:init (do
                                (alter-var-root #'*out* (constantly *out*))
                                (require '[clojure.tools.trace :refer [trace]]))
-                       :caught clj-stacktrace.repl/pst+}}
+                       :caught clj-stacktrace.repl/pst+}
+ :repl {:repl-options {:prompt (fn [ns]
+                                 (str "\033[1;32m"
+                                      ns "=>"
+                                      "\033[0m "))}}}
