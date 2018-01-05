@@ -1,6 +1,5 @@
 output /home/pvalkone/Downloads/BBC iPlayer
 whitespace 1
-fatfilename 1
 subdir 1
 subdirformat <nameshort>
 subtitles 1
