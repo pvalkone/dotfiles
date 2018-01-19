@@ -3,7 +3,7 @@
 #
 
 if [ -f ~/bin/sensible.bash ]; then
-   source ~/bin/sensible.bash
+  source ~/bin/sensible.bash
 fi
 
 # If not running interactively, don't do anything
@@ -27,6 +27,10 @@ export LESS="-r -X"
 export JAVA_HOME="/usr/lib/jvm/default"
 export SCALA_HOME="/usr/share/scala"
 
-source `locate git-prompt.sh`
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
+else
+  source $(locate git-prompt.sh)
+fi
 GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
