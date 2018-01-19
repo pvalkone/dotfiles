@@ -5,7 +5,7 @@
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
 [core]
-  excludesfile = /opt/boxen/homebrew/etc/boxen/git/gitignore
+  excludesfile = ~/.cvsignore
 [alias]
   st = status
   pullr = pull --rebase
