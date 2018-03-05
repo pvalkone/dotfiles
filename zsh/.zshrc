@@ -5,7 +5,7 @@ SAVEHIST=$HISTSIZE
 bindkey -e
 
 # Oh-My-ZSH
-plugins=(brew brew-cask docker docker-machine lein mosh osx sbt scala sudo wd yle-dev zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(aws brew brew-cask cargo docker docker-machine lein mosh osx sbt scala sudo wd yle-dev zsh-completions zsh-syntax-highlighting history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
