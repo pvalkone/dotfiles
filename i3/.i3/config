@@ -182,8 +182,8 @@ bar {
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute && $restart-i3status
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute && $restart-i3status
 bindsym XF86AudioMute exec amixer -q sset Master toggle && $restart-i3status
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && $restart-i3status
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && $restart-i3status
+bindsym XF86MonBrightnessUp exec intel_backlight incr && $restart-i3status
+bindsym XF86MonBrightnessDown exec intel_backlight decr && $restart-i3status
 bindsym XF86ScreenSaver exec xset s activate
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
