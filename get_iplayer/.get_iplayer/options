@@ -5,3 +5,4 @@ subdirformat <nameshort>
 subtitles 1
 modes best
 fileprefix <nameshort> <seriesnum>-<episodenum> <episodeshort>
+nopurge 1
