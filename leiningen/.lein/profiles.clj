@@ -1,8 +1,8 @@
-{:user {:plugins [[lein-ancient "0.6.8"]
-                  [lein-auto "0.1.2"]
+{:user {:plugins [[lein-ancient "0.6.15"]
+                  [lein-auto "0.1.3"]
                   [lein-autoreload "0.1.1"]
-                  [lein-kibit "0.1.6-beta2"]
-                  [venantius/ultra "0.5.0"]]}
+                  [lein-kibit "0.1.6"]
+                  [venantius/ultra "0.5.2"]]}
  :dependencies [[org.clojure/tools.trace "0.7.9"]
                 [clj-stacktrace "0.2.8"]
                 [slamhound "1.5.5"]]
