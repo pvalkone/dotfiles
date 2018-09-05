@@ -6,6 +6,7 @@
         :dependencies [[org.clojure/tools.trace "0.7.9"]
                        [clj-stacktrace "0.2.8"]
                        [slamhound "1.5.5"]]
+        :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         :repl-options {:init (do
                                (alter-var-root #'*out* (constantly *out*))
                                (require '[clojure.tools.trace :refer [trace]]))
