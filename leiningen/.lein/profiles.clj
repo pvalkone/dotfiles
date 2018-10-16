@@ -2,6 +2,7 @@
                   [lein-auto "0.1.3"]
                   [lein-autoreload "0.1.1"]
                   [lein-kibit "0.1.6"]
+                  [lein-nvd "0.5.5"]
                   [venantius/ultra "0.5.2"]]}
         :dependencies [[org.clojure/tools.trace "0.7.9"]
                        [clj-stacktrace "0.2.8"]
