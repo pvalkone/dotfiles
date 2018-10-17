@@ -26,5 +26,7 @@
   cmd = "icdiff --line-numbers $LOCAL $REMOTE"
 [difftool]
   prompt = false
+[diff "gpg-diff"]
+  textconv = gpg --use-agent -q --batch --decrypt
 [commit]
   verbose = true
