@@ -4,6 +4,12 @@ HISTSIZE=1000
 SAVEHIST=$HISTSIZE
 bindkey -e
 
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+[ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
+[ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
+
 # Oh-My-ZSH
 plugins=(aws brew brew-cask cargo docker docker-machine gpg-agent lein mosh osx sbt scala sudo wd yle-dev zsh-completions zsh-syntax-highlighting history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
@@ -27,12 +33,6 @@ autoload -Uz ztodo
 chpwd() { ztodo }
 
 export LESS="-r -X"
-
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-[ -f $HOME/.zsh-secrets ] && source $HOME/.zsh-secrets
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-[ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
-[ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
 
 binary_exists() {
   /usr/bin/which -s $1
