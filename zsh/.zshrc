@@ -87,6 +87,7 @@ alias rg="rg --colors line:fg:yellow \
 	--colors match:fg:black \
 	--colors match:bg:yellow \
 	--colors match:style:nobold"
+alias vim="nvim"
 
 setopt noclobber
 setopt nocheckjobs
