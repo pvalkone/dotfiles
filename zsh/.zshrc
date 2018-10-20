@@ -101,4 +101,4 @@ bindkey "^[^[[D" backward-word
 path+=('/opt/bin')
 
 export GOPATH=${HOME}/.go
-export EDITOR=$(which vim)
+export EDITOR=$(which nvim)
