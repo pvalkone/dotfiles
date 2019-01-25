@@ -22,7 +22,6 @@ if [ -f ~/.fehbg ]; then
 fi
 unclutter -root -visible -idle 1 &
 
-LOCATION=$(curl --silent --fail ipinfo.io/loc | tr ',' ':')
-redshift -l ${LOCATION:=60.1708:24.9375} &
+xcalib -d ${DISPLAY} ${HOME}/.local/share/icc/x220.icc
 
 exec i3
