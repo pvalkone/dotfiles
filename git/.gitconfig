@@ -32,3 +32,5 @@
   textconv = gpg --use-agent -q --batch --decrypt
 [commit]
   verbose = true
+[sequence]
+  editor = interactive-rebase-tool
