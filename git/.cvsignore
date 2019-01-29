@@ -1,7 +1,8 @@
-/*.iml
-/.idea
-/.nrepl-port
+*.iml
+.idea
+.nrepl-port
 *~
-*.swp
-*.swo
+*.sw[a-p]
 .DS_Store
+.tf
+.lein-failures
