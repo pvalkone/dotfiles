@@ -34,8 +34,6 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 autoload -Uz ztodo
 chpwd() { ztodo }
 
-export LESS="-r -X"
-
 binary_exists() {
   /usr/bin/which -s $1
   echo $?
@@ -102,5 +100,8 @@ bindkey "^[^[[D" backward-word
 
 path+=('/opt/bin' "${HOME}/.cargo/bin")
 
+
+export LESS="-r -X"
 export GOPATH=${HOME}/.go
 export EDITOR=$(which nvim)
+export RUST_BACKTRACE=1
