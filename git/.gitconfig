@@ -12,6 +12,8 @@
   unstage = reset HEAD --
   last = log -1 --stat
   dt = difftool
+  uncommit = reset --soft HEAD^
+  staged = diff --cached
 [push]
   default = simple
 [color]
