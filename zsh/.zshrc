@@ -98,7 +98,7 @@ zstyle ':urlglobber' url-other-schema
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-path+=('/opt/bin')
+path+=('/opt/bin' "${HOME}/.cargo/bin")
 
 export GOPATH=${HOME}/.go
 export EDITOR=$(which nvim)
