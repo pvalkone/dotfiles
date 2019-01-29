@@ -23,6 +23,8 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 DEFAULT_USER=$(whoami)
 source $ZSH/oh-my-zsh.sh
 
+fpath+=~/.zfunc
+
 autoload -U compinit && compinit
 
 zmodload zsh/terminfo
