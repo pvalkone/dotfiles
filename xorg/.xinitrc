@@ -24,4 +24,6 @@ unclutter -root -visible -idle 1 &
 
 xcalib -d ${DISPLAY} ${HOME}/.local/share/icc/x220.icc
 
+export BROWSER=firefox
+
 exec i3
