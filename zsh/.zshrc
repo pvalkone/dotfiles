@@ -10,8 +10,21 @@ bindkey -e
 [ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
 [ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
 
+binary_exists() {
+  /usr/bin/which -s $1
+  echo $?
+}
+
+if [[ $(uname -s) == 'Darwin' && $(binary_exists "brew") -eq 0 && -d ${HOMEBREW_ROOT} ]]; then
+  export FZF_BASE=${HOMEBREW_ROOT}/Cellar/fzf/0.18.0
+else
+  export FZF_BASE=/usr/local/share/examples/fzf
+fi
+# export DISABLE_FZF_AUTO_COMPLETION="true"
+# export DISABLE_FZF_KEY_BINDINGS="true"
+
 # Oh-My-ZSH
-plugins=(aws brew brew-cask cargo docker docker-machine gpg-agent lein mosh osx sbt scala sudo wd zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(aws brew brew-cask cargo docker docker-machine fzf gpg-agent lein mosh osx sbt scala sudo wd zsh-completions zsh-syntax-highlighting history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -33,11 +46,6 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 autoload -Uz ztodo
 chpwd() { ztodo }
-
-binary_exists() {
-  /usr/bin/which -s $1
-  echo $?
-}
 
 if [ $(binary_exists "brew") -eq 0 ]; then
   NVM_PREFIX=$(brew --prefix nvm)
