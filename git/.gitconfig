@@ -2,6 +2,7 @@
 [user]
   email = petteri.valkonen@iki.fi
   name = Petteri Valkonen
+  signingkey = 0xA6324BAC952E9EED
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
 [core]
