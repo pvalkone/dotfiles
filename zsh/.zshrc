@@ -11,7 +11,7 @@ bindkey -e
 [ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
 
 # Oh-My-ZSH
-plugins=(aws brew brew-cask cargo docker docker-machine gpg-agent lein mosh osx sbt scala sudo wd yle-dev zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(aws brew brew-cask cargo docker docker-machine gpg-agent lein mosh osx sbt scala sudo wd zsh-completions zsh-syntax-highlighting history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
