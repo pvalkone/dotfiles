@@ -74,7 +74,6 @@ alias g="git"
 if [[ $(uname -s) == 'Darwin' ]]; then
   alias verify-permissions="sudo /usr/libexec/repair_packages --verify --standard-pkgs /"
   alias repair-permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
-  POSTPROCESS_SCRIPT_DIR=$HOME/bin
 fi
 
 if [[ $(uname -s) == 'FreeBSD' ]]; then
@@ -82,7 +81,6 @@ if [[ $(uname -s) == 'FreeBSD' ]]; then
   # Enable VAAPI video output and hardware accelerated decoding
   # See: https://unrelenting.technology/articles/freebsd-on-the-thinkpad-x240
   alias mpv="mpv --vo=vaapi --hwdec=vaapi"
-  POSTPROCESS_SCRIPT_DIR=/usr/local/share/yle-dl
 fi
 
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\""
