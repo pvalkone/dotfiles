@@ -22,7 +22,7 @@ if [ -f ~/.fehbg ]; then
 fi
 unclutter -root -visible -idle 1 &
 
-xcalib -d ${DISPLAY} ${HOME}/.local/share/icc/x220.icc
+xcalib -d ${DISPLAY} ${HOME}/.local/share/icc/$(hostname -s).icc
 
 export BROWSER=firefox
 
