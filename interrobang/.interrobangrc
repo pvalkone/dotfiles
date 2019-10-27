@@ -1,4 +1,4 @@
-set font     = -monotype-cousine-medium-r-normal--11-0-0-0-m-0-iso8859-1
+set font     = fixed
 set color    = #eee8d5 #2b2b2b #eee8d5 #2b2b2b #e6e1dc #5a647e
 set geometry = 400x17-1+0
 set border   = 0px
