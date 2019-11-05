@@ -191,7 +191,7 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioStop exec mpc stop
-bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
 # Window styles
 for_window [class="VirtualBox"] floating enable
