@@ -79,6 +79,8 @@ fi
 
 if [[ $(uname -s) == 'FreeBSD' ]]; then
   alias pnotes="date -v -4w +%Y%m%d | xargs pkg updating --date"
+  export CC=clang
+  export CXX=clang++
 fi
 
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --vfat"
