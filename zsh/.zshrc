@@ -24,7 +24,7 @@ fi
 # export DISABLE_FZF_KEY_BINDINGS="true"
 
 # Oh-My-ZSH
-plugins=(aws brew cargo docker docker-machine fzf gpg-agent lein mosh osx sbt scala sudo wd zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(aws cargo docker docker-compose docker-machine fzf gpg-agent jenv lein mosh ripgrep sbt scala z history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -79,6 +79,8 @@ fi
 
 if [[ $(uname -s) == 'FreeBSD' ]]; then
   alias pnotes="date -v -4w +%Y%m%d | xargs pkg updating --date"
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   export CC=clang
   export CXX=clang++
 fi
