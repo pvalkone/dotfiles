@@ -108,7 +108,8 @@ path+=(
   "${HOME}/bin",
   '/opt/bin',
   "${HOME}/.cargo/bin",
-  "${HOME}/.jenv/bin"
+  "${HOME}/.jenv/bin",
+  "${HOME}/.scalaenv/bin"
 )
 
 export LESS="-r -X"
@@ -130,3 +131,4 @@ if test -z "${XDG_RUNTIME_DIR}"; then
 fi
 
 eval "$(jenv init -)"
+eval "$(scalaenv init -)"
