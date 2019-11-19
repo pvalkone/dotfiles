@@ -107,7 +107,8 @@ bindkey "^[^[[D" backward-word
 path+=(
   "${HOME}/bin",
   '/opt/bin',
-  "${HOME}/.cargo/bin"
+  "${HOME}/.cargo/bin",
+  "${HOME}/.jenv/bin"
 )
 
 export LESS="-r -X"
@@ -127,3 +128,5 @@ if test -z "${XDG_RUNTIME_DIR}"; then
         chmod 0700 "${XDG_RUNTIME_DIR}"
     fi
 fi
+
+eval "$(jenv init -)"
