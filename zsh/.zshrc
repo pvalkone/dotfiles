@@ -85,8 +85,6 @@ if [[ $(uname -s) == 'FreeBSD' ]]; then
 fi
 
 alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --vfat"
-alias ag-clj="ag -G '.cljs?$'"
-alias ag-scala="ag -G '.scala$'"
 alias rg="rg --colors line:fg:yellow \
 	--colors line:style:bold \
 	--colors path:fg:green \
