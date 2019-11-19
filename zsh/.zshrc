@@ -104,8 +104,11 @@ zstyle ':urlglobber' url-other-schema
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-path+=('/opt/bin' "${HOME}/.cargo/bin")
-
+path+=(
+  "${HOME}/bin",
+  '/opt/bin',
+  "${HOME}/.cargo/bin"
+)
 
 export LESS="-r -X"
 export GOPATH=${HOME}/.go
