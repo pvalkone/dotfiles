@@ -112,3 +112,8 @@ export LESS="-r -X"
 export GOPATH=${HOME}/.go
 export EDITOR=$(which nvim)
 export RUST_BACKTRACE=1
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+eval $(keychain --eval --agents gpg --quiet)
+gpg-connect-agent updatestartuptty /bye &> /dev/null
