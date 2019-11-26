@@ -187,10 +187,6 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle && $restart-i3status
 bindsym XF86MonBrightnessUp exec intel_backlight incr && $restart-i3status
 bindsym XF86MonBrightnessDown exec intel_backlight decr && $restart-i3status
 bindsym XF86ScreenSaver exec xset s activate
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioStop exec mpc stop
 bindsym $mod+Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'"
 
 # Window styles
