@@ -243,4 +243,4 @@ mode "$mode_gaps_outer" {
 }
 
 exec_always --no-startup-id xss-lock -- $i3lock
-exec_always --no-startup-id compton --no-dock-shadow --no-dnd-shadow --daemon --vsync drm
+exec_always --no-startup-id compton --daemon
