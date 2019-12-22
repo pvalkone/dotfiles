@@ -10,7 +10,6 @@ fi
 if [ -f ~/.Xresources ]; then
   xrdb -merge ~/.Xresources
 fi
-setxkbmap fi -option terminate:ctrl_alt_bksp
 if [ -f ~/.xmodmaprc ]; then
   xmodmap ~/.xmodmaprc
 fi
