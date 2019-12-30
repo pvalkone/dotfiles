@@ -23,6 +23,9 @@ unclutter -root -visible -idle 1 &
 
 xcalib -display ${DISPLAY} -screen 0 ${HOME}/.local/share/icc/$(hostname -s).icc
 
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
 export BROWSER=firefox
 
 exec i3
