@@ -19,8 +19,6 @@
   ui = auto
 [rebase]
   autostash = true
-[hub]
-  protocol = https
 [diff]
   tool = icdiff
 [difftool "icdiff"]
