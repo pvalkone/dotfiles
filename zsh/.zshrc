@@ -9,6 +9,7 @@ bindkey -e
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 [ -f /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh ] && source /opt/boxen/homebrew/opt/chtf/share/chtf/chtf.sh
 [ -d /opt/boxen/homebrew/opt/python/libexec/bin ] && path+=('/opt/boxen/homebrew/opt/python/libexec/bin')
+[ -f ${HOME}/.config/broot/launcher/bash/br ] && source ${HOME}/.config/broot/launcher/bash/br
 
 binary_exists() {
   /usr/bin/which -s $1
