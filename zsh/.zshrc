@@ -86,7 +86,7 @@ if [[ $(uname -s) == 'FreeBSD' ]]; then
   export CXX=clang++
 fi
 
-alias yle-dl="yle-dl --destdir \"$DOWNLOAD_DIR/Yle Areena\" --vfat"
+alias yle-dl="yle-dl --destdir \"${DOWNLOAD_DIR}/Yle Areena\" --vfat --no-overwrite"
 alias rg="rg --colors line:fg:yellow \
 	--colors line:style:bold \
 	--colors path:fg:green \
