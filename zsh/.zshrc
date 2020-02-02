@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 
 HISTSIZE=1000
@@ -27,14 +34,7 @@ fi
 # Oh-My-ZSH
 plugins=(aws cargo docker docker-compose docker-machine fzf gpg-agent jenv lein mosh ripgrep sbt scala z history-substring-search)
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_IGNORE_TERM_COLORS=true
+ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER=$(whoami)
 source $ZSH/oh-my-zsh.sh
 
@@ -133,3 +133,6 @@ fi
 
 eval "$(jenv init -)"
 eval "$(scalaenv init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
