@@ -1,3 +1,8 @@
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+eval $(keychain --eval --agents gpg --quiet)
+gpg-connect-agent updatestartuptty /bye &> /dev/null
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
@@ -117,11 +122,6 @@ export LESS="-r -X"
 export GOPATH=${HOME}/.go
 export EDITOR=$(which nvim)
 export RUST_BACKTRACE=1
-
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-eval $(keychain --eval --agents gpg --quiet)
-gpg-connect-agent updatestartuptty /bye &> /dev/null
 
 if test -z "${XDG_RUNTIME_DIR}"; then
     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
