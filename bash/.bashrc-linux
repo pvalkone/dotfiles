@@ -1,4 +1,0 @@
-#
-# Linux-specific ~/.bashrc commands
-#
-alias ls='ls --color=auto'
