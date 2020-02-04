@@ -6,3 +6,6 @@ truncate_to_repo = true
 
 [line_break]
 disabled = true
+
+[username]
+disabled = true
