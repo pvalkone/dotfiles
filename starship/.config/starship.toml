@@ -4,7 +4,7 @@ add_newline = false
 disabled = true
 
 [directory]
-truncation_length = 2
+truncation_length = 3
 truncate_to_repo = true
 
 [line_break]
