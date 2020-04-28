@@ -1,3 +1,5 @@
+use_nerdfont = true
+
 [theme]
 background = "black"
 primary = "light white"
