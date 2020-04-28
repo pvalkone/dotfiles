@@ -111,18 +111,19 @@ zstyle ':urlglobber' url-other-schema
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-path+=(
-  "${HOME}/bin",
-  '/opt/bin',
-  "${HOME}/.cargo/bin",
-  "${HOME}/.jenv/bin",
-  "${HOME}/.scalaenv/bin"
-)
-
 export LESS="-r -X"
 export GOPATH=${HOME}/.go
 export EDITOR=$(which nvim)
 export RUST_BACKTRACE=1
+
+path+=(
+  "${HOME}/bin",
+  '/opt/bin',
+  "${HOME}/.cargo/bin",
+  "${GOPATH}/bin",
+  "${HOME}/.jenv/bin",
+  "${HOME}/.scalaenv/bin"
+)
 
 if test -z "${XDG_RUNTIME_DIR}"; then
     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
