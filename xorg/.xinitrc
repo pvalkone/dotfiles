@@ -10,6 +10,7 @@ fi
 if [ -f ~/.Xresources ]; then
   xrdb -merge ~/.Xresources
 fi
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 if [ -f ~/.xmodmaprc ]; then
   xmodmap ~/.xmodmaprc
 fi
