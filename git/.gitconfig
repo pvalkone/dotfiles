@@ -31,3 +31,10 @@
   verbose = true
 [sequence]
   editor = interactive-rebase-tool
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig
+[pull]
+  rebase = true
+[rebase]
+  autosquash = true
+  autostash = true
