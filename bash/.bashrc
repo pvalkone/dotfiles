@@ -18,6 +18,5 @@ alias vim='nvim'
 export EDITOR=`which nvim`
 export PAGER=`which less`
 export LESS="-r -X"
-export HOME="/usr/home/$(whoami)"
 
 eval "$(starship init bash)"
