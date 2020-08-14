@@ -13,9 +13,8 @@ alias rg="rg --colors line:fg:yellow \
              --colors match:fg:black \
              --colors match:bg:yellow \
              --colors match:style:nobold"
-alias vim='nvim'
 
-export EDITOR=`which nvim`
+export EDITOR=`which vim`
 export PAGER=`which less`
 export LESS="-r -X"
 
