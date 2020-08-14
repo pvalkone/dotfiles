@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/Psiu\ Puxa/*
+feh --no-fehbg --bg-fill --randomize ~/Pictures/Wallpapers/Psiu\ Puxa/* ~/Pictures/Wallpapers/Psiu\ Puxa/*
