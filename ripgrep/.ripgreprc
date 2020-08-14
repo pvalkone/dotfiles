@@ -1,0 +1,14 @@
+--colors=line:fg:yellow
+--colors=line:style:bold
+--colors=path:fg:green
+--colors=path:style:bold
+--colors=match:fg:black
+--colors=match:bg:yellow
+--colors=match:style:nobold
+
+--hidden
+
+--max-columns=150
+--max-columns-preview
+
+--smart-case
