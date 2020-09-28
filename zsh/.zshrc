@@ -8,6 +8,8 @@ binary_exists() {
   echo $?
 }
 
+autoload -Uz compinit && compinit
+
 eval "$(starship init zsh)"
 
 source "${HOME}/.zgen/zgen.zsh"
