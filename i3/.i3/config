@@ -191,7 +191,6 @@ bindsym $mod+Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screens
 
 # Window styles
 for_window [class="VirtualBox"] floating enable
-for_window [class="jetbrains-idea"] floating enable # Intellij IDEA loading window
 
 # Workspace assignments
 
