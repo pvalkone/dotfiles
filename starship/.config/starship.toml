@@ -30,3 +30,6 @@ disabled = true
 
 [vagrant]
 disabled = true
+
+[kotlin]
+disabled = true
