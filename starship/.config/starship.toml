@@ -27,3 +27,6 @@ disabled = true
 
 [terraform]
 disabled = true
+
+[vagrant]
+disabled = true
