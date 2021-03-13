@@ -33,3 +33,6 @@ disabled = true
 
 [kotlin]
 disabled = true
+
+[perl]
+disabled = true
