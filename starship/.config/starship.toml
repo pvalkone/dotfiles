@@ -8,7 +8,7 @@ truncation_length = 3
 truncate_to_repo = true
 
 [hostname]
-disabled = true
+ssh_only = true
 
 [username]
 disabled = true
@@ -41,4 +41,7 @@ disabled = true
 disabled = true
 
 [golang]
+disabled = true
+
+[localip]
 disabled = true
