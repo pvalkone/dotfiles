@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ "$(uname -s)" != "Darwin" ]; then
+  echo "Not OS X!" >&2
+  exit 1
+fi
+
 # Hide filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool false && \
 # Show hidden files
