@@ -16,3 +16,5 @@ ssh/.ssh/authorized_keys
 ssh/.ssh/id_*
 ssh/.ssh/known_hosts
 zsh/.zsh-secrets
+pgcli/.config/pgcli/history
+pgcli/.config/pgcli/log
