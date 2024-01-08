@@ -48,3 +48,6 @@ disabled = true
 
 [c]
 disabled = true
+
+[gradle]
+disabled = true
