@@ -13,3 +13,4 @@ export LESS="-r -X"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
 eval "$(starship init bash)"
+eval "$(mcfly init bash)"
