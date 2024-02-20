@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export LANG=en_US.UTF-8
+export LC_ALL=${LANG}
+
 if [ -z "${CUSTOM_PORTS_DIR}" ]; then
   1>&2 echo "CUSTOM_PORTS_DIR not specified!"
   exit 1
