@@ -1,0 +1,13 @@
+[kpiv]
+description = Kaypro 2X/4/10 - DSDD 48 tpi 5.25"
+cylinders = 80
+heads = 2
+sectors = 10
+secbase = 0
+secsize = 512
+datarate = DD
+rwgap = 12
+fmtgap = 23
+fm = N
+multitrack = N
+skipdeleted = Y
