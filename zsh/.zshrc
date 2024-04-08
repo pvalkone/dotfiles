@@ -108,8 +108,3 @@ if test -z "${XDG_RUNTIME_DIR}"; then
         chmod 0700 "${XDG_RUNTIME_DIR}"
     fi
 fi
-
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-eval "$(keychain --eval --agents gpg --quiet)"
-gpg-connect-agent updatestartuptty /bye &> /dev/null
