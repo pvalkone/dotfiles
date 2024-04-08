@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# PROVIDE:      zfsenc
+# REQUIRE:      zfs
+
+. /etc/rc.subr
+
+name="zfsenc"
+desc="Mount automatically encrypted data sets"
+rcvar="zfsenc_enable"
+start_cmd="zfsenc_start"
+stop_cmd="zfsenc_stop"
+
+: ${zfsenc_enable:="NO"}
+
+zfsenc_start()
+{
+        zfs load-key -L file:///root/keyfile pool/encrypted
+        zfs mount pool/encrypted
+}
+
+zfsenc_stop()
+{
+        zfs umount -u pool/encrypted
+}
+
+load_rc_config $name
+run_rc_command "$1"
