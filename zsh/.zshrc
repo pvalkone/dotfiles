@@ -108,3 +108,7 @@ if test -z "${XDG_RUNTIME_DIR}"; then
         chmod 0700 "${XDG_RUNTIME_DIR}"
     fi
 fi
+
+export MCFLY_FUZZY=2
+export MCFLY_PROMPT="❯"
+eval "$(mcfly init zsh)"
