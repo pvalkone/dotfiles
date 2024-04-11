@@ -1,6 +1,9 @@
+setopt HIST_IGNORE_SPACE
+
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=${HISTSIZE}
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 bindkey -e
 
 binary_exists() {
@@ -16,19 +19,15 @@ source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
   zgen load zsh-users/zsh-completions src
-  zgen load /usr/local/share/zsh/site-functions
+  zgen load "$(brew --prefix)/share/zsh/site-functions"
 
-  zgen load zdharma/fast-syntax-highlighting
+  zgen load zdharma-continuum/fast-syntax-highlighting
   zgen load zsh-users/zsh-history-substring-search
 
   zmodload zsh/terminfo
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
 
   zgen load chrissicool/zsh-256color
-  zgen load junegunn/fzf shell/completion.zsh
-  zgen load junegunn/fzf shell/key-bindings.zsh
-  zgen load ajeetdsouza/zoxide
+  zgen load ajeetdsouza/zoxide . main
   zgen load zsh-users/zsh-autosuggestions
 
   zgen load unixorn/autoupdate-zgen
@@ -36,14 +35,16 @@ if ! zgen saved; then
   zgen save
 fi
 
-export LESS="-r -X"
+export LESS="-r -X -S"
 export GOPATH="${HOME}/.go"
 export EDITOR="$(which vim)"
 export RUST_BACKTRACE=1
 export PYENV_ROOT="${HOME}/.pyenv"
 export STEPPATH="${HOME}/.step"
-export DOCKER_HOST="tcp://192.168.8.2:2376"
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
+export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+export AWS_VAULT_BACKEND="keychain"
 
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
@@ -55,10 +56,11 @@ path+=(
   "${HOME}/.scalaenv/bin"
   "${PYENV_ROOT}/bin"
   '/opt/bin'
+  "$(brew --prefix libpq)/bin"
 )
 
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
+#bindkey '^[[1;5D' backward-word
+#bindkey '^[[1;5C' forward-word
 
 [ -f "${HOME}/.zsh-secrets" ] && source "${HOME}/.zsh-secrets"
 
@@ -74,7 +76,11 @@ if [ $(binary_exists "pyenv") -eq 0 ]; then
   eval "$(pyenv init -)"
 fi
 
-export NVM_DIR="$HOME/.nvm"
+if [ $(binary_exists "pyenv-virtualenv-init") -eq 0 ]; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+export NVM_DIR="$(brew --prefix nvm)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
@@ -99,15 +105,18 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+alias b="brew"
 alias g="git"
+alias k="kubectl"
+alias lens-dev="aws-vault exec --duration=1h dvv-viestit-dev -- /Applications/OpenLens.app/Contents/MacOS/OpenLens"
+alias vim="nvim"
+alias k9s-dvv-viestit-dev="aws-vault exec dvv-viestit-dev -- k9s --kubeconfig ~/.kube/config-dvv-viestit-dev --namespace viestit"
+alias k9s-dvv-viestit-qa="aws-vault exec dvv-viestit-qa -- k9s --kubeconfig ~/.kube/config-dvv-viestit-qa --namespace viestit"
+alias k9s-dvv-viestit-prod="aws-vault exec dvv-viestit-prod -- k9s --kubeconfig ~/.kube/config-dvv-viestit-prod --namespace viestit"
 
-if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-    if ! test -d "${XDG_RUNTIME_DIR}"; then
-        mkdir "${XDG_RUNTIME_DIR}"
-        chmod 0700 "${XDG_RUNTIME_DIR}"
-    fi
-fi
+function kubectl-dvv-viestit-dev() { aws-vault exec dvv-viestit-dev -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-dev --namespace viestit "$@"; }
+function kubectl-dvv-viestit-qa() { aws-vault exec dvv-viestit-qa -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-qa --namespace viestit "$@"; }
+function kubectl-dvv-viestit-prod() { aws-vault exec dvv-viestit-prod -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-prod --namespace viestit "$@"; }
 
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
