@@ -11,3 +11,12 @@ fmtgap = 23
 fm = N
 multitrack = N
 skipdeleted = Y
+
+[osborne1]
+description = Osborne 1 - SSSD 48 tpi 5.25"
+cylinders = 40
+heads = 1
+secsize = 256
+sectors = 10
+secbase = 1
+datarate = SD
