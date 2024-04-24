@@ -28,6 +28,9 @@ defaults write $HOME/Library/Preferences/com.apple.controlcenter.plist \
 # F1, F2, etc. behave as standard function keys
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
+# Disable creating .DS_Store files on USB volumes
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 for app in "Finder" "Dock"; do
   killall "${app}"
 done
