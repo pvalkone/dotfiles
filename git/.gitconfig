@@ -18,9 +18,12 @@
 [color]
   ui = auto
 [rebase]
+  autosquash = true
   autostash = true
 [diff]
   tool = icdiff
+  colorMoved = dimmed-zebra
+  algorithm = histogram
 [difftool "icdiff"]
   cmd = "icdiff --line-numbers $LOCAL $REMOTE"
 [difftool]
@@ -40,3 +43,15 @@
   autostash = true
 [push]
   autoSetupRemote = true
+[merge]
+  conflictstyle = zdiff3
+[rerere]
+  enabled = true
+[init]
+  defaultBranch = main
+[help]
+  autocorrect = prompt
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+[absorb]
+  maxStack = 20
