@@ -1,3 +1,12 @@
+[kpii]
+description = Kaypro II/2 - SSDD 48 tpi 5.25"
+cylinders = 40
+heads = 1
+secsize = 512
+sectors = 10
+secbase = 0
+datarate = DD
+
 [kpiv]
 description = Kaypro 2X/4/10 - DSDD 48 tpi 5.25"
 cylinders = 80
