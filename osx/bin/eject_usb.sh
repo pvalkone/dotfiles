@@ -29,7 +29,9 @@ if ! is_user_root; then
   readonly sudo_cmd
 fi
 
+echo "Turning off Spotlight indexing..."
 $sudo_cmd mdutil -i off "$volume" > /dev/null 2>&1
+echo "Cleaning up ._* files..."
 $sudo_cmd dot_clean -m -n "$volume" 2> /dev/null
 
 diskutil quiet unmount "$device" || die "Failed to unmount device."
@@ -41,9 +43,11 @@ mtoolsrc=$HOME/.mtoolsrc
 readonly mtoolsrc
 
 echo "drive $drive file=\"$device\"" > "$mtoolsrc"
+echo "Cleaning up OS X-specific directories..."
 $sudo_cmd mdeltree "$drive/.Spotlight-V100" "$drive/.fseventsd" "$drive/.Trashes" 2> /dev/null
 rm -f $mtoolsrc
 
+echo "Sorting FAT filesystem..."
 $sudo_cmd fatsort -q "$device" 2> /dev/null || die "Failed to sort disk."
 
 echo "Done. It's now safe to remove the USB drive."
