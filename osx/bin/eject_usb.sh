@@ -45,6 +45,8 @@ readonly mtoolsrc
 echo "drive $drive file=\"$device\"" > "$mtoolsrc"
 echo "Cleaning up OS X-specific directories..."
 $sudo_cmd mdeltree "$drive/.Spotlight-V100" "$drive/.fseventsd" "$drive/.Trashes" 2> /dev/null
+echo "Setting FAT read-only attribute on selected files..."
+$sudo_cmd mattrib +r "U:/System Disks/*.img" "U:/*.img" 2>/dev/null
 rm -f $mtoolsrc
 
 echo "Sorting FAT filesystem..."
