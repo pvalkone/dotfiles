@@ -47,7 +47,7 @@ echo "Cleaning up OS X-specific directories..."
 $sudo_cmd mdeltree "$drive/.Spotlight-V100" "$drive/.fseventsd" "$drive/.Trashes"
 echo "Setting FAT read-only attribute on selected files..."
 $sudo_cmd mattrib +r "U:/System Disks/*.img" "U:/*.img" 2>/dev/null
-rm -f $mtoolsrc
+rm -f "$mtoolsrc"
 
 echo "Sorting FAT filesystem..."
 $sudo_cmd fatsort -q "$device" 2> /dev/null || die "Failed to sort disk."
