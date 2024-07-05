@@ -1,3 +1,5 @@
+hi Normal guibg=none
+
 set nocompatible
 
 call plug#begin()
