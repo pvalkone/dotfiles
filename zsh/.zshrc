@@ -45,6 +45,7 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 export AWS_VAULT_BACKEND="keychain"
+export HOMEBREW_NO_ENV_HINTS=1
 
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
