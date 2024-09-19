@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias g="git"
+alias ls="eza"
 
 export EDITOR="$(which vim)"
 export PAGER="$(which less)"
