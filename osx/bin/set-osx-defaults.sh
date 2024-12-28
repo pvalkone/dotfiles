@@ -31,6 +31,9 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 # Disable creating .DS_Store files on USB volumes
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# Disable creating .DS_Store files on network shares
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
 for app in "Finder" "Dock"; do
   killall "${app}"
 done
