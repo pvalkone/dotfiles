@@ -108,16 +108,7 @@ load-nvmrc
 
 alias b="brew"
 alias g="git"
-alias k="kubectl"
-alias lens-dev="aws-vault exec --duration=1h dvv-viestit-dev -- /Applications/OpenLens.app/Contents/MacOS/OpenLens"
 alias vim="nvim"
-alias k9s-dvv-viestit-dev="aws-vault exec dvv-viestit-dev -- k9s --kubeconfig ~/.kube/config-dvv-viestit-dev --namespace viestit"
-alias k9s-dvv-viestit-qa="aws-vault exec dvv-viestit-qa -- k9s --kubeconfig ~/.kube/config-dvv-viestit-qa --namespace viestit"
-alias k9s-dvv-viestit-prod="aws-vault exec dvv-viestit-prod -- k9s --kubeconfig ~/.kube/config-dvv-viestit-prod --namespace viestit"
-
-function kubectl-dvv-viestit-dev() { aws-vault exec dvv-viestit-dev -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-dev --namespace viestit "$@"; }
-function kubectl-dvv-viestit-qa() { aws-vault exec dvv-viestit-qa -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-qa --namespace viestit "$@"; }
-function kubectl-dvv-viestit-prod() { aws-vault exec dvv-viestit-prod -- kubectl --kubeconfig ~/.kube/config-dvv-viestit-prod --namespace viestit "$@"; }
 
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
