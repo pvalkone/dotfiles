@@ -14,6 +14,7 @@ binary_exists() {
 autoload -Uz compinit && compinit
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 source "${HOME}/.zgen/zgen.zsh"
 
