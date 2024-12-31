@@ -36,7 +36,8 @@ if ! zgen saved; then
   zgen save
 fi
 
-export LESS="-r -X -S"
+export LESS="-R"
+export LESSOPEN="| highlight --out-format=truecolor %s"
 export GOPATH="${HOME}/.go"
 export EDITOR="$(which vim)"
 export RUST_BACKTRACE=1
