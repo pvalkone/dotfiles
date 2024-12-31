@@ -40,7 +40,6 @@ export LESS="-r -X -S"
 export GOPATH="${HOME}/.go"
 export EDITOR="$(which vim)"
 export RUST_BACKTRACE=1
-export PYENV_ROOT="${HOME}/.pyenv"
 export STEPPATH="${HOME}/.step"
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
@@ -54,9 +53,6 @@ path+=(
   "${HOME}/bin"
   "${HOME}/.cargo/bin"
   "${GOPATH}/bin"
-  "${HOME}/.jenv/bin"
-  "${HOME}/.scalaenv/bin"
-  "${PYENV_ROOT}/bin"
   '/opt/bin'
   "$(brew --prefix libpq)/bin"
   "$(brew --prefix gradle@7)/bin"
@@ -68,14 +64,24 @@ path+=(
 [ -f "${HOME}/.zsh-secrets" ] && source "${HOME}/.zsh-secrets"
 
 if [ $(binary_exists "jenv") -eq 0 ]; then
+  path+=(
+    "${HOME}/.jenv/bin"
+  )
   eval "$(jenv init -)"
 fi
 
 if [ $(binary_exists "scalaenv") -eq 0 ]; then
+  path+=(
+    "${HOME}/.scalaenv/bin"
+  )
   eval "$(scalaenv init -)"
 fi
 
 if [ $(binary_exists "pyenv") -eq 0 ]; then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  path+=(
+    "${PYENV_ROOT}/bin"
+  )
   eval "$(pyenv init -)"
 fi
 
