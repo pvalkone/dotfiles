@@ -41,11 +41,14 @@ export GOPATH="${HOME}/.go"
 export EDITOR="$(which vim)"
 export RUST_BACKTRACE=1
 export STEPPATH="${HOME}/.step"
-export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
-export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-export AWS_VAULT_BACKEND="keychain"
 export HOMEBREW_NO_ENV_HINTS=1
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+  export AWS_VAULT_BACKEND="keychain"
+  export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+fi
 
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
