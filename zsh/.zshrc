@@ -11,6 +11,20 @@ binary_exists() {
   echo $?
 }
 
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  BREW_PREFIX="$(/opt/homebrew/bin/brew --prefix)"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  BREW_PREFIX="$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)"
+fi
+
+if [ -n "$BREW_PREFIX" ]; then
+  path+=(
+    "${BREW_PREFIX}/bin"
+    "${BREW_PREFIX}/sbin"
+    "${BREW_PREFIX}/opt/gradle@7/bin"
+  )
+fi
+
 autoload -Uz compinit && compinit
 
 eval "$(starship init zsh)"
