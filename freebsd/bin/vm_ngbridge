@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+# PROVIDE: vm_ngbridge
+# REQUIRE: netwait
+# BEFORE: vm
+# KEYWORD: nojail
+#
+# Also see:
+#
+# https://klarasystems.com/articles/using-netgraph-for-freebsds-bhyve-networking/
+# /usr/share/examples/netgraph/ether.bridge
+#
+# shellcheck disable=SC2034
+# shellcheck source=/dev/null
+. /etc/rc.subr 
+
+name="vm_ngbridge"
+start_cmd="${name}_start" 
+stop_cmd="${name}_stop" 
+start_precmd="${name}_precmd"
+stop_precmd="${name}_precmd"
+
+load_rc_config $name
+: "${vm_ngbridge_enable:="NO"}"
+: "${vm_ngbridge_name="public"}"
+: "${vm_ngbridge_interface=""}"
+
+vm_ngbridge_precmd() {
+  for module in ng_ether ng_bridge; do
+    if ! kldstat -v | grep -qw ${module}; then
+      printf "Loading kernel module %s... " "${module}"
+      kldload ${module} || exit 1
+      echo "done"
+    fi
+  done
+}
+
+vm_ngbridge_start() {
+  if ! ngctl info "${vm_ngbridge_interface}:" >/dev/null 2>&1; then
+    echo "Error: Interface ${vm_ngbridge_interface} does not exist!"
+    exit 1
+  fi
+  ifconfig "${vm_ngbridge_interface}" up || exit 1
+
+  printf "Starting bridge network %s... " "${vm_ngbridge_name}" 
+  if ! ngctl info "${vm_ngbridge_name}:" >/dev/null 2>&1; then
+    ngctl -f- <<END
+      mkpeer ${vm_ngbridge_interface}: bridge lower link0
+      name ${vm_ngbridge_interface}:lower ${vm_ngbridge_name}
+      connect ${vm_ngbridge_interface}: ${vm_ngbridge_name}: upper link1
+      msg ${vm_ngbridge_interface}: setpromisc 1
+      msg ${vm_ngbridge_interface}: setautosrc 0
+END
+  fi
+  echo "started"
+}
+
+vm_ngbridge_stop() {
+  if ! ngctl info "${vm_ngbridge_name}:" >/dev/null 2>&1; then
+    echo "Error: Bridge network ${vm_ngbridge_name} not found!"
+    exit 1
+  fi
+
+  printf "Stopping bridge network %s..." "${vm_ngbridge_name}"
+  ngctl kill "${vm_ngbridge_name}:" >/dev/null 2>&1
+  echo "done"
+}
+
+load_rc_config $name 
+run_rc_command "$1"

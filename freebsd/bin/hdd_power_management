@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# PROVIDE: hdd_power_management
+# REQUIRE: LOGIN
+# KEYWORD: nojail
+#
+# See: https://serverfault.com/a/1047332
+#
+# shellcheck disable=SC2034
+# shellcheck source=/dev/null
+. /etc/rc.subr
+
+name="hdd_power_management"
+start_cmd="${name}_start"
+stop_cmd=":"
+idle_cmd="${name}_idle"
+
+load_rc_config $name
+: "${hdd_power_management_drives=""}"
+: "${hdd_power_management_idle_state="idle_b"}"
+
+extra_commands="status idle"
+status_cmd="${name}_status"
+start_precmd="${name}_precmd"
+status_precmd="${name}_precmd"
+idle_precmd="${name}_precmd"
+
+camcontrol_cmd() {
+  if [ "$1" = "" ]; then
+    echo "No command specified."
+  else
+    eval "camcontrol $1" && echo "OK" || echo "Error"
+  fi
+}
+
+hdd_power_management_precmd() {
+  if [ "$hdd_power_management_drives" = "" ]; then
+    echo "No drives specified."
+  fi
+}
+
+hdd_power_management_start() {
+  for d in $hdd_power_management_drives; do
+    printf "Disabling APM for %s... " "$d"
+    camcontrol_cmd "apm $d"
+
+    printf "Disabling standby timer for %s... " "$d"
+    camcontrol_cmd "idle $d -t 0"
+
+    printf "Enabling EPC for %s... " "$d"
+    camcontrol_cmd "epc $d -c enable"
+
+    printf "Disabling standby_z for %s... " "$d"
+    camcontrol_cmd "epc $d -c state -d -p standby_z"
+
+    timer=600
+    printf "Setting idle_b timer to %d seconds for %s... " "$timer" "$d"
+    camcontrol_cmd "epc $d -c timer -e -T $timer -p idle_b"
+  done
+}
+
+hdd_power_management_status() {
+  for d in $hdd_power_management_drives; do
+    printf "%s " "$d"
+    camcontrol epc "$d" -c status -P | sed -e 's|^C|c|'
+  done
+}
+
+hdd_power_management_idle() {
+  for d in $hdd_power_management_drives; do
+    printf "Telling %s to go to power state %s... " "$d" "$hdd_power_management_idle_state"
+	    camcontrol_cmd "epc $d -c goto -p $hdd_power_management_idle_state"
+  done
+}
+
+run_rc_command "$1"

@@ -1,0 +1,20 @@
+#!/bin/sh 
+# PROVIDE: ipmievd
+# REQUIRE: syslogd
+# BEFORE:  LOGIN 
+# KEYWORD: nojail
+#
+# shellcheck disable=SC2034
+# shellcheck source=/dev/null
+. /etc/rc.subr 
+
+name="ipmievd" 
+desc="IPMI event daemon for sending events to syslog"
+
+command="/usr/local/sbin/${name}"
+command_args="sel daemon" 
+
+pidfile="/var/run/${name}.pid0"
+
+load_rc_config $name
+run_rc_command "$1"
