@@ -65,7 +65,7 @@ path+=(
 #bindkey '^[[1;5D' backward-word
 #bindkey '^[[1;5C' forward-word
 
-[ -f "${HOME}/.zsh-secrets" ] && source "${HOME}/.zsh-secrets"
+[ -f "${HOME}/.zsh.local" ] && source "${HOME}/.zsh.local"
 
 if [ $(binary_exists "jenv") -eq 0 ]; then
   path+=(
