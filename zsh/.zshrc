@@ -7,7 +7,7 @@ HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 bindkey -e
 
 binary_exists() {
-  /usr/bin/which -s $1
+  command -v "$1" >/dev/null 2>&1
   echo $?
 }
 
