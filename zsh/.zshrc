@@ -58,6 +58,7 @@ path+=(
   "${PYENV_ROOT}/bin"
   '/opt/bin'
   "$(brew --prefix libpq)/bin"
+  "$(brew --prefix gradle@7)/bin"
 )
 
 #bindkey '^[[1;5D' backward-word
