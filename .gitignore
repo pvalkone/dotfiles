@@ -15,7 +15,7 @@ sbt/.sbt/0.13/plugins/target/
 ssh/.ssh/authorized_keys
 ssh/.ssh/id_*
 ssh/.ssh/known_hosts
-zsh/.zsh.local
+zsh/.zshrc.local
 zsh/.zsh-secrets
 pgcli/.config/pgcli/history
 pgcli/.config/pgcli/log
