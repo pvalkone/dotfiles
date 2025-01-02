@@ -39,7 +39,7 @@ fi
 export LESS="-R -X"
 export LESSOPEN="| highlight --out-format=truecolor %s"
 export GOPATH="${HOME}/.go"
-export EDITOR="$(which vim)"
+export EDITOR="$(which nvim)"
 export RUST_BACKTRACE=1
 export STEPPATH="${HOME}/.step"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
