@@ -60,9 +60,6 @@ path+=(
   "$(brew --prefix gradle@7)/bin"
 )
 
-#bindkey '^[[1;5D' backward-word
-#bindkey '^[[1;5C' forward-word
-
 [ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
 
 if [ $(binary_exists "jenv") -eq 0 ]; then
