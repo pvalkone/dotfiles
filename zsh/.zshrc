@@ -45,11 +45,17 @@ export STEPPATH="${HOME}/.step"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export HOMEBREW_NO_ENV_HINTS=1
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-  export AWS_VAULT_BACKEND="keychain"
-  export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
-fi
+case "$(uname -s)" in
+  "Darwin")
+    export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+    export AWS_VAULT_BACKEND="keychain"
+    export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+    ;;
+  "Linux")
+    bindkey '^[[1;5D' backward-word
+    bindkey '^[[1;5C' forward-word
+    ;;
+esac
 
 path+=(
   "${HOME}/bin"
@@ -59,9 +65,6 @@ path+=(
   "$(brew --prefix libpq)/bin"
   "$(brew --prefix gradle@7)/bin"
 )
-
-#bindkey '^[[1;5D' backward-word
-#bindkey '^[[1;5C' forward-word
 
 [ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
 
