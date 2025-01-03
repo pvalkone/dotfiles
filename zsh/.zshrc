@@ -51,8 +51,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 fi
 
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
-
 path+=(
   "${HOME}/bin"
   "${HOME}/.cargo/bin"
