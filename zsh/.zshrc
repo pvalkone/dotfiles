@@ -52,8 +52,8 @@ case "$(uname -s)" in
     export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
     ;;
   "Linux")
-    bindkey '^[[1;5D' backward-word
-    bindkey '^[[1;5C' forward-word
+    bindkey '^[[1;3D' backward-word
+    bindkey '^[[1;3C' forward-word
     ;;
 esac
 
