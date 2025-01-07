@@ -66,8 +66,6 @@ path+=(
   "$(brew --prefix gradle@7)/bin"
 )
 
-[ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
-
 if [ $(binary_exists "jenv") -eq 0 ]; then
   path+=(
     "${HOME}/.jenv/bin"
@@ -128,3 +126,5 @@ alias vim="nvim"
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
+
+[ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
