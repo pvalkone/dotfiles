@@ -37,7 +37,7 @@ if ! zgen saved; then
 fi
 
 export LESS="-R -X"
-export LESSOPEN="| highlight --out-format=truecolor %s"
+export LESSOPEN="| highlight --style base16/dracula --out-format=truecolor %s"
 export GOPATH="${HOME}/.go"
 export EDITOR="$(which nvim)"
 export RUST_BACKTRACE=1
