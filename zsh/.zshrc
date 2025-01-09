@@ -122,6 +122,7 @@ fi
 alias b="brew"
 alias g="git"
 alias vim="nvim"
+alias ls="eza --color=always --icons"
 
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
