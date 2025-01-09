@@ -2,3 +2,4 @@ background-opacity = 0.9
 background-blur-radius = 20
 window-save-state = always
 quit-after-last-window-closed = true
+mouse-hide-while-typing = true
