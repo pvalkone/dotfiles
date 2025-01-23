@@ -5,6 +5,7 @@
   signingkey = 0xA6324BAC952E9EED
 [core]
   excludesfile = ~/.cvsignore
+  pager = delta
 [alias]
   st = status
   pullr = pull --rebase
@@ -21,11 +22,8 @@
   autosquash = true
   autostash = true
 [diff]
-  tool = icdiff
   colorMoved = dimmed-zebra
   algorithm = histogram
-[difftool "icdiff"]
-  cmd = "icdiff --line-numbers $LOCAL $REMOTE"
 [difftool]
   prompt = false
 [diff "gpg-diff"]
@@ -57,3 +55,7 @@
   maxStack = 20
 [safe]
   directory = /opt/snapbak2
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
