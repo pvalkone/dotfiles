@@ -5,3 +5,4 @@
 *.sw[a-p]
 .DS_Store
 .lein-failures
+__pycache__/
