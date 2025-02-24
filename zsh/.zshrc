@@ -44,6 +44,7 @@ export RUST_BACKTRACE=1
 export STEPPATH="${HOME}/.step"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export HOMEBREW_NO_ENV_HINTS=1
+export PERLBREW_ROOT="${HOME}/.perlbrew/perl5"
 
 case "$(uname -s)" in
   "Darwin")
@@ -64,6 +65,7 @@ path+=(
   '/opt/bin'
   "$(brew --prefix libpq)/bin"
   "$(brew --prefix gradle@7)/bin"
+  "${PERLBREW_ROOT}/bin"
 )
 
 if [ $(binary_exists "jenv") -eq 0 ]; then
@@ -117,6 +119,10 @@ if [ $(binary_exists "nvm") -eq 0 ]; then
   }
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc
+fi
+
+if [ $(binary_exists "perlbrew") -eq 0 ]; then
+  source "${PERLBREW_ROOT}/etc/bashrc"
 fi
 
 alias b="brew"
