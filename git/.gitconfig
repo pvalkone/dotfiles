@@ -67,3 +67,7 @@
   ui = auto
 [tag]
   sort = version:refname
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
