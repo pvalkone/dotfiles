@@ -47,6 +47,7 @@
   conflictstyle = zdiff3
 [rerere]
   enabled = true
+  autoupdate = true
 [init]
   defaultBranch = main
 [help]
