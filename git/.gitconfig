@@ -24,6 +24,7 @@
 [diff]
   colorMoved = dimmed-zebra
   algorithm = histogram
+  renames = true
 [difftool]
   prompt = false
 [diff "gpg-diff"]
