@@ -8,7 +8,6 @@
   pager = delta
 [alias]
   st = status
-  pullr = pull --rebase
   unstage = reset HEAD --
   last = log -1 --stat
   dt = difftool
