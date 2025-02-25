@@ -21,6 +21,7 @@
 [rebase]
   autosquash = true
   autostash = true
+  updateRefs = true
 [diff]
   colorMoved = dimmed-zebra
   algorithm = histogram
