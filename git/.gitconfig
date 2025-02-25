@@ -60,7 +60,7 @@
 [safe]
   directory = /opt/snapbak2
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
   navigate = true
 [branch]
