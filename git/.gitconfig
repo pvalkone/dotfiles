@@ -58,4 +58,6 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    navigate = true
+  navigate = true
+[branch]
+  sort = -committerdate
