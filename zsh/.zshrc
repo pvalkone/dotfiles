@@ -11,6 +11,10 @@ binary_exists() {
   echo $?
 }
 
+fpath+=(
+  "${HOME}/.docker/completions"
+)
+
 autoload -Uz compinit && compinit
 
 eval "$(starship init zsh)"
