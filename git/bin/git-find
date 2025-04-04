@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+git log \
+  --pretty=oneline \
+  -G "$@" \
+  | fzf \
+    --ansi \
+    --no-sort \
+    --preview 'git show {1} | bat --language gitlog --color=always' \
+  | cut -d ' ' -f1

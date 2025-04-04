@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+MAIN_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD --short)
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+BRANCHES="$(git branch | sed -e'/^*/d')"
+
+# Rebase everything against origin
+for BRANCH in $BRANCHES; do
+  git checkout "$BRANCH"
+  git rebase "$MAIN_BRANCH" || git rebase --abort
+done
+
+# Go back to where we were
+git checkout "$CURRENT_BRANCH"
+# Remove merged branches
+git branch --merged | grep -v '^*\|main' | xargs -r git branch -d
