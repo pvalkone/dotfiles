@@ -51,3 +51,6 @@ disabled = true
 
 [gradle]
 disabled = true
+
+[package]
+disabled = true
