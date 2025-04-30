@@ -132,7 +132,7 @@ fi
 alias b="brew"
 alias g="git"
 alias vim="nvim"
-alias ls="eza --color=always --icons $@"
+alias ls="eza --group-directories-first --icons --color-scale=all --hyperlink"
 alias cat="bat --paging=never"
 
 export MCFLY_FUZZY=2
