@@ -54,3 +54,6 @@ disabled = true
 
 [package]
 disabled = true
+
+[dart]
+disabled = true
