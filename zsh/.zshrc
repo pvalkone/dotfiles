@@ -99,8 +99,9 @@ if [ $(binary_exists "pyenv-virtualenv-init") -eq 0 ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-if [ $(binary_exists "nvm") -eq 0 ]; then
-  export NVM_DIR="$(brew --prefix nvm)"
+export NVM_DIR="$(brew --prefix nvm)"
+
+if [ -n "${NVM_DIR}" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
