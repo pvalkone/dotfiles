@@ -56,8 +56,10 @@ case "$(uname -s)" in
     export SSH_AUTH_SOCK="${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
     export AWS_VAULT_BACKEND="keychain"
     export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+    export NVM_DIR="$(brew --prefix nvm)"
     ;;
   "Linux")
+    export NVM_DIR="${HOME}/.nvm"
     bindkey '^[[1;3D' backward-word
     bindkey '^[[1;3C' forward-word
     ;;
@@ -98,8 +100,6 @@ fi
 if [ $(binary_exists "pyenv-virtualenv-init") -eq 0 ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
-
-export NVM_DIR="$(brew --prefix nvm)"
 
 if [ -n "${NVM_DIR}" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
