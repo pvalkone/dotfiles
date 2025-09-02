@@ -73,7 +73,6 @@ path+=(
   "$(brew --prefix libpq)/bin"
   "$(brew --prefix gradle@7)/bin"
   "${PERLBREW_ROOT}/bin"
-  "${HOME}/.local/bin"
 )
 
 if [ $(binary_exists "jenv") -eq 0 ]; then
