@@ -5,3 +5,4 @@ quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 keybind = shift+enter=text:\x1b\r
 window-decoration = client
+shell-integration-features = ssh-env,ssh-terminfo
