@@ -4,3 +4,4 @@ window-save-state = always
 quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 keybind = shift+enter=text:\x1b\r
+window-decoration = client
