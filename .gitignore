@@ -19,3 +19,8 @@ zsh/.zshrc.local
 zsh/.zsh-secrets
 pgcli/.config/pgcli/history
 pgcli/.config/pgcli/log
+continue-cli/.continue/auth.json
+continue-cli/.continue/input_history.json
+continue-cli/.continue/logs/
+continue-cli/.continue/sessions/
+continue-cli/.continue/.onboarding_complete
