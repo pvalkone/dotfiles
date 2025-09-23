@@ -1,0 +1,11 @@
+name: Local Ollama Agent
+version: 0.0.1
+schema: v1
+
+models:
+  - name: "Qwen3-Coder 30B"
+    provider: "ollama"
+    model: "qwen3-coder:30b"
+  - name: "Qwen2.5-Coder 32B Instruct"
+    provider: "ollama"
+    model: "qwen2.5:32b-instruct"
