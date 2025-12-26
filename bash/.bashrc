@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias checkport="portlint -AC; portfmt -D Makefile; portclippy Makefile"
 alias g="git"
 alias ls="eza"
 
