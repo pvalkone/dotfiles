@@ -69,3 +69,6 @@ disabled = true
 
 [os]
 disabled = true
+
+[cmake]
+disabled = true
