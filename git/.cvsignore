@@ -6,4 +6,5 @@
 .DS_Store
 .lein-failures
 __pycache__/
-.claude/
+.claude/*
+!.claude/settings.json
