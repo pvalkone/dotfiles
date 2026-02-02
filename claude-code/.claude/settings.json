@@ -3,7 +3,9 @@
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
   },
   "enabledPlugins": {
-    "github@claude-plugins-official": true
+    "github@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "git-surgeon@git-surgeon": true
   },
   "statusLine": {
     "type": "command", 
