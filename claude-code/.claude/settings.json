@@ -4,5 +4,10 @@
   },
   "enabledPlugins": {
     "github@claude-plugins-official": true
+  },
+  "statusLine": {
+    "type": "command", 
+    "command": "~/.claude/ccline/ccline",
+    "padding": 0
   }
 }
