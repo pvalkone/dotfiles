@@ -139,6 +139,7 @@ alias vim="nvim"
 alias ls="eza --group-directories-first --icons --color-scale=all --hyperlink"
 alias cat="bat --paging=never"
 alias oc="opencode"
+alias wm="workmux"
 
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
