@@ -6,3 +6,4 @@ mouse-hide-while-typing = true
 keybind = shift+enter=text:\x1b\r
 window-decoration = client
 shell-integration-features = ssh-env
+font-family = Iosevka NFM
