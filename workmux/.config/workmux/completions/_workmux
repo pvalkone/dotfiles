@@ -1,0 +1,952 @@
+#compdef workmux
+
+autoload -U is-at-least
+
+_workmux() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_workmux_commands" \
+"*::: :->workmux" \
+&& ret=0
+    case $state in
+    (workmux)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:workmux-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" : \
+'(--base -A --auto-name)--pr=[Pull request number to checkout]:PR:_default' \
+'--base=[Base branch/commit/tag to branch from (defaults to current branch)]:BASE:_default' \
+'--name=[Explicit name for the worktree directory and tmux window (overrides worktree_naming strategy and worktree_prefix)]:NAME:_default' \
+'(-P --prompt-file -e --prompt-editor)-p+[Inline prompt text to store in the new worktree]:PROMPT:_default' \
+'(-P --prompt-file -e --prompt-editor)--prompt=[Inline prompt text to store in the new worktree]:PROMPT:_default' \
+'(-p --prompt -e --prompt-editor)-P+[Path to a file whose contents should be used as the prompt]:PROMPT_FILE:_files' \
+'(-p --prompt -e --prompt-editor)--prompt-file=[Path to a file whose contents should be used as the prompt]:PROMPT_FILE:_files' \
+'*-a+[The agent(s) to use. Creates one worktree per agent if -n is not specified]:AGENT:_default' \
+'*--agent=[The agent(s) to use. Creates one worktree per agent if -n is not specified]:AGENT:_default' \
+'(--foreach)-n+[Number of worktree instances to create. Can be used with zero or one --agent. Incompatible with --foreach]:COUNT:_default' \
+'(--foreach)--count=[Number of worktree instances to create. Can be used with zero or one --agent. Incompatible with --foreach]:COUNT:_default' \
+'(-a --agent -n --count)--foreach=[Generate multiple worktrees from a variable matrix. Format\: "var1\:valA,valB;var2\:valX,valY". Lists must have equal length. Incompatible with --agent and --count]:FOREACH:_default' \
+'--branch-template=[Template for branch names in multi-worktree modes. Variables\: {{ base_name }}, {{ agent }}, {{ num }}, {{ foreach_vars }}]:BRANCH_TEMPLATE:_default' \
+'--max-concurrent=[Maximum number of worktrees to run concurrently. When set, waits for a slot to open before creating new worktrees]:MAX_CONCURRENT:_default' \
+'(--pr)-A[Generate branch name from prompt using LLM]' \
+'(--pr)--auto-name[Generate branch name from prompt using LLM]' \
+'(-p --prompt -P --prompt-file)-e[Open \$EDITOR to write the prompt]' \
+'(-p --prompt -P --prompt-file)--prompt-editor[Open \$EDITOR to write the prompt]' \
+'-H[Skip running post-create hooks]' \
+'--no-hooks[Skip running post-create hooks]' \
+'-F[Skip file copy/symlink operations]' \
+'--no-file-ops[Skip file copy/symlink operations]' \
+'-C[Skip executing pane commands (panes open with plain shells)]' \
+'--no-pane-cmds[Skip executing pane commands (panes open with plain shells)]' \
+'-b[Create tmux window in the background (do not switch to it)]' \
+'--background[Create tmux window in the background (do not switch to it)]' \
+'(-w --with-changes)-o[Open existing worktree if it exists instead of failing (like tmux new -A)]' \
+'(-w --with-changes)--open-if-exists[Open existing worktree if it exists instead of failing (like tmux new -A)]' \
+'(-n --count --foreach)-w[Move uncommitted changes from the current worktree to the new worktree]' \
+'(-n --count --foreach)--with-changes[Move uncommitted changes from the current worktree to the new worktree]' \
+'--patch[Interactively select which changes to move (only applies with --with-changes)]' \
+'-u[Also move untracked files (only applies with --with-changes)]' \
+'--include-untracked[Also move untracked files (only applies with --with-changes)]' \
+'-W[Block until the created tmux window is closed]' \
+'--wait[Block until the created tmux window is closed]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'::branch_name -- Name of the branch (creates if it doesn'\''t exist) or remote ref (e.g., origin/feature). When used with --pr, this becomes the custom local branch name:_default' \
+&& ret=0
+;;
+(open)
+_arguments "${_arguments_options[@]}" : \
+'(-P --prompt-file -e --prompt-editor)-p+[Inline prompt text to store in the new worktree]:PROMPT:_default' \
+'(-P --prompt-file -e --prompt-editor)--prompt=[Inline prompt text to store in the new worktree]:PROMPT:_default' \
+'(-p --prompt -e --prompt-editor)-P+[Path to a file whose contents should be used as the prompt]:PROMPT_FILE:_files' \
+'(-p --prompt -e --prompt-editor)--prompt-file=[Path to a file whose contents should be used as the prompt]:PROMPT_FILE:_files' \
+'--run-hooks[Re-run post-create hooks (e.g., pnpm install)]' \
+'--force-files[Re-apply file operations (copy/symlink)]' \
+'-n[Force opening in a new window (creates suffix like -2, -3) instead of switching to existing]' \
+'--new[Force opening in a new window (creates suffix like -2, -3) instead of switching to existing]' \
+'(-p --prompt -P --prompt-file)-e[Open \$EDITOR to write the prompt]' \
+'(-p --prompt -P --prompt-file)--prompt-editor[Open \$EDITOR to write the prompt]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'::name -- Worktree name (directory name, visible in tmux window). Optional with --new:_default' \
+&& ret=0
+;;
+(close)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+'::name -- Worktree name (defaults to current directory if omitted):_default' \
+&& ret=0
+;;
+(merge)
+_arguments "${_arguments_options[@]}" : \
+'--into=[The target branch to merge into (defaults to main_branch from config)]:INTO:_default' \
+'--ignore-uncommitted[Ignore uncommitted and staged changes]' \
+'--rebase[Rebase the branch onto the main branch before merging (fast-forward)]' \
+'--squash[Squash all commits from the branch into a single commit on the main branch]' \
+'-k[Keep the worktree, window, and branch after merging (skip cleanup)]' \
+'--keep[Keep the worktree, window, and branch after merging (skip cleanup)]' \
+'-n[Skip running pre-merge hooks]' \
+'--no-verify[Skip running pre-merge hooks]' \
+'--notification[Show a system notification on successful merge]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'::name -- Worktree name or branch (defaults to current directory):_default' \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" : \
+'(--all)--gone[Remove worktrees whose upstream remote branch has been deleted (e.g., after PR merge)]' \
+'--all[Remove all worktrees (except the main worktree)]' \
+'-f[Skip confirmation and ignore uncommitted changes]' \
+'--force[Skip confirmation and ignore uncommitted changes]' \
+'-k[Keep the local branch (only remove worktree and tmux window)]' \
+'--keep-branch[Keep the local branch (only remove worktree and tmux window)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::names -- Worktree names (defaults to current directory name if empty):_default' \
+&& ret=0
+;;
+(rm)
+_arguments "${_arguments_options[@]}" : \
+'(--all)--gone[Remove worktrees whose upstream remote branch has been deleted (e.g., after PR merge)]' \
+'--all[Remove all worktrees (except the main worktree)]' \
+'-f[Skip confirmation and ignore uncommitted changes]' \
+'--force[Skip confirmation and ignore uncommitted changes]' \
+'-k[Keep the local branch (only remove worktree and tmux window)]' \
+'--keep-branch[Keep the local branch (only remove worktree and tmux window)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::names -- Worktree names (defaults to current directory name if empty):_default' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" : \
+'--pr[Show PR status for each worktree (requires gh CLI)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::filter -- Filter by worktree name or branch (supports multiple):_default' \
+&& ret=0
+;;
+(ls)
+_arguments "${_arguments_options[@]}" : \
+'--pr[Show PR status for each worktree (requires gh CLI)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::filter -- Filter by worktree name or branch (supports multiple):_default' \
+&& ret=0
+;;
+(path)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+':name -- Worktree name (directory name):_default' \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" : \
+'()-f+[Read prompt from file]:FILE:_default' \
+'()--file=[Read prompt from file]:FILE:_default' \
+'-h[Print help]' \
+'--help[Print help]' \
+':name -- Worktree name:_default' \
+'::text -- Text to send (reads from --file or stdin if omitted):_default' \
+&& ret=0
+;;
+(capture)
+_arguments "${_arguments_options[@]}" : \
+'-n+[Number of lines to capture]:LINES:_default' \
+'--lines=[Number of lines to capture]:LINES:_default' \
+'-h[Print help]' \
+'--help[Print help]' \
+':name -- Worktree name:_default' \
+&& ret=0
+;;
+(status)
+_arguments "${_arguments_options[@]}" : \
+'--json[Output as JSON]' \
+'--git[Include git info (staged/unstaged changes, unmerged commits)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::worktrees -- Worktree names (default\: all with active agents):_default' \
+&& ret=0
+;;
+(wait)
+_arguments "${_arguments_options[@]}" : \
+'--status=[Target status to wait for]:STATUS:_default' \
+'--timeout=[Maximum wait time in seconds]:TIMEOUT:_default' \
+'--any[Return when ANY worktree reaches target (default\: wait for ALL)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::worktrees -- Worktree names to wait on:_default' \
+&& ret=0
+;;
+(run)
+_arguments "${_arguments_options[@]}" : \
+'--timeout=[Maximum wait time in seconds]:TIMEOUT:_default' \
+'-b[Run in background without waiting (default\: wait and stream output)]' \
+'--background[Run in background without waiting (default\: wait and stream output)]' \
+'--keep[Keep run artifacts after completion (for debugging)]' \
+'-h[Print help]' \
+'--help[Print help]' \
+':name -- Worktree name:_default' \
+'*::command -- Command to run (everything after --):_default' \
+&& ret=0
+;;
+(init)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(docs)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(changelog)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(dashboard)
+_arguments "${_arguments_options[@]}" : \
+'-P+[Preview pane size as percentage (10-90). Larger = more preview, less table]:PREVIEW_SIZE:_default' \
+'--preview-size=[Preview pane size as percentage (10-90). Larger = more preview, less table]:PREVIEW_SIZE:_default' \
+'-d[Open diff view directly for the current worktree]' \
+'--diff[Open diff view directly for the current worktree]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(claude)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+":: :_workmux__claude_commands" \
+"*::: :->claude" \
+&& ret=0
+
+    case $state in
+    (claude)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:workmux-claude-command-$line[1]:"
+        case $line[1] in
+            (prune)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+":: :_workmux__claude__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:workmux-claude-help-command-$line[1]:"
+        case $line[1] in
+            (prune)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(set-window-status)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':command:((working\:"Set status to "working" (agent is processing)"
+waiting\:"Set status to "waiting" (agent needs user input) - auto-clears on window focus"
+done\:"Set status to "done" (agent finished) - auto-clears on window focus"
+clear\:"Clear the status"))' \
+&& ret=0
+;;
+(set-base)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+':base -- The new base branch:_default' \
+&& ret=0
+;;
+(__exec)
+_arguments "${_arguments_options[@]}" : \
+'--run-dir=[Absolute path to run directory]:RUN_DIR:_files' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(last-done)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(last-agent)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(completions)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+':shell -- The shell to generate completions for:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(_complete-branches)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(_complete-handles)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(_complete-git-branches)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+":: :_workmux__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:workmux-help-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(open)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(close)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(merge)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(path)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(capture)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(status)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(wait)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(run)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(init)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(docs)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(changelog)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(dashboard)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(claude)
+_arguments "${_arguments_options[@]}" : \
+":: :_workmux__help__claude_commands" \
+"*::: :->claude" \
+&& ret=0
+
+    case $state in
+    (claude)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:workmux-help-claude-command-$line[1]:"
+        case $line[1] in
+            (prune)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(set-window-status)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(set-base)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(__exec)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(last-done)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(last-agent)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(completions)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(_complete-branches)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(_complete-handles)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(_complete-git-branches)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_workmux_commands] )) ||
+_workmux_commands() {
+    local commands; commands=(
+'add:Create a new worktree and tmux window' \
+'open:Open a tmux window for an existing worktree' \
+'close:Close a worktree'\''s tmux window (keeps the worktree and branch)' \
+'merge:Merge a branch, then clean up the worktree and tmux window' \
+'remove:Remove a worktree, tmux window, and branch without merging' \
+'rm:Remove a worktree, tmux window, and branch without merging' \
+'list:List all worktrees' \
+'ls:List all worktrees' \
+'path:Get the filesystem path of a worktree' \
+'send:Send a prompt or instruction to a running agent' \
+'capture:Capture terminal output from a running agent' \
+'status:Query agent status for worktrees' \
+'wait:Wait for agents to reach a target status' \
+'run:Run a command in a worktree'\''s window' \
+'init:Generate example .workmux.yaml configuration file' \
+'docs:Show detailed documentation (renders README.md)' \
+'changelog:Show the changelog (what'\''s new in each version)' \
+'dashboard:Show a TUI dashboard of all active workmux agents across all sessions' \
+'claude:Claude Code integration commands' \
+'set-window-status:Set agent status for the current tmux window (used by hooks)' \
+'set-base:Set the base branch for the current worktree (used after rebasing)' \
+'__exec:Execute a run spec (internal use)' \
+'last-done:Switch to the agent that most recently completed its task' \
+'last-agent:Switch to the last visited agent (toggle between two)' \
+'completions:Generate shell completions' \
+'_complete-branches:Output worktree branch names for shell completion (internal use)' \
+'_complete-handles:Output worktree handles for shell completion (internal use)' \
+'_complete-git-branches:Output git branches for shell completion (internal use)' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'workmux commands' commands "$@"
+}
+(( $+functions[_workmux____exec_commands] )) ||
+_workmux____exec_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux __exec commands' commands "$@"
+}
+(( $+functions[_workmux___complete-branches_commands] )) ||
+_workmux___complete-branches_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux _complete-branches commands' commands "$@"
+}
+(( $+functions[_workmux___complete-git-branches_commands] )) ||
+_workmux___complete-git-branches_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux _complete-git-branches commands' commands "$@"
+}
+(( $+functions[_workmux___complete-handles_commands] )) ||
+_workmux___complete-handles_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux _complete-handles commands' commands "$@"
+}
+(( $+functions[_workmux__add_commands] )) ||
+_workmux__add_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux add commands' commands "$@"
+}
+(( $+functions[_workmux__capture_commands] )) ||
+_workmux__capture_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux capture commands' commands "$@"
+}
+(( $+functions[_workmux__changelog_commands] )) ||
+_workmux__changelog_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux changelog commands' commands "$@"
+}
+(( $+functions[_workmux__claude_commands] )) ||
+_workmux__claude_commands() {
+    local commands; commands=(
+'prune:Remove stale entries from ~/.claude.json for deleted worktrees' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'workmux claude commands' commands "$@"
+}
+(( $+functions[_workmux__claude__help_commands] )) ||
+_workmux__claude__help_commands() {
+    local commands; commands=(
+'prune:Remove stale entries from ~/.claude.json for deleted worktrees' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'workmux claude help commands' commands "$@"
+}
+(( $+functions[_workmux__claude__help__help_commands] )) ||
+_workmux__claude__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux claude help help commands' commands "$@"
+}
+(( $+functions[_workmux__claude__help__prune_commands] )) ||
+_workmux__claude__help__prune_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux claude help prune commands' commands "$@"
+}
+(( $+functions[_workmux__claude__prune_commands] )) ||
+_workmux__claude__prune_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux claude prune commands' commands "$@"
+}
+(( $+functions[_workmux__close_commands] )) ||
+_workmux__close_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux close commands' commands "$@"
+}
+(( $+functions[_workmux__completions_commands] )) ||
+_workmux__completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux completions commands' commands "$@"
+}
+(( $+functions[_workmux__dashboard_commands] )) ||
+_workmux__dashboard_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux dashboard commands' commands "$@"
+}
+(( $+functions[_workmux__docs_commands] )) ||
+_workmux__docs_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux docs commands' commands "$@"
+}
+(( $+functions[_workmux__help_commands] )) ||
+_workmux__help_commands() {
+    local commands; commands=(
+'add:Create a new worktree and tmux window' \
+'open:Open a tmux window for an existing worktree' \
+'close:Close a worktree'\''s tmux window (keeps the worktree and branch)' \
+'merge:Merge a branch, then clean up the worktree and tmux window' \
+'remove:Remove a worktree, tmux window, and branch without merging' \
+'list:List all worktrees' \
+'path:Get the filesystem path of a worktree' \
+'send:Send a prompt or instruction to a running agent' \
+'capture:Capture terminal output from a running agent' \
+'status:Query agent status for worktrees' \
+'wait:Wait for agents to reach a target status' \
+'run:Run a command in a worktree'\''s window' \
+'init:Generate example .workmux.yaml configuration file' \
+'docs:Show detailed documentation (renders README.md)' \
+'changelog:Show the changelog (what'\''s new in each version)' \
+'dashboard:Show a TUI dashboard of all active workmux agents across all sessions' \
+'claude:Claude Code integration commands' \
+'set-window-status:Set agent status for the current tmux window (used by hooks)' \
+'set-base:Set the base branch for the current worktree (used after rebasing)' \
+'__exec:Execute a run spec (internal use)' \
+'last-done:Switch to the agent that most recently completed its task' \
+'last-agent:Switch to the last visited agent (toggle between two)' \
+'completions:Generate shell completions' \
+'_complete-branches:Output worktree branch names for shell completion (internal use)' \
+'_complete-handles:Output worktree handles for shell completion (internal use)' \
+'_complete-git-branches:Output git branches for shell completion (internal use)' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'workmux help commands' commands "$@"
+}
+(( $+functions[_workmux__help____exec_commands] )) ||
+_workmux__help____exec_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help __exec commands' commands "$@"
+}
+(( $+functions[_workmux__help___complete-branches_commands] )) ||
+_workmux__help___complete-branches_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help _complete-branches commands' commands "$@"
+}
+(( $+functions[_workmux__help___complete-git-branches_commands] )) ||
+_workmux__help___complete-git-branches_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help _complete-git-branches commands' commands "$@"
+}
+(( $+functions[_workmux__help___complete-handles_commands] )) ||
+_workmux__help___complete-handles_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help _complete-handles commands' commands "$@"
+}
+(( $+functions[_workmux__help__add_commands] )) ||
+_workmux__help__add_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help add commands' commands "$@"
+}
+(( $+functions[_workmux__help__capture_commands] )) ||
+_workmux__help__capture_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help capture commands' commands "$@"
+}
+(( $+functions[_workmux__help__changelog_commands] )) ||
+_workmux__help__changelog_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help changelog commands' commands "$@"
+}
+(( $+functions[_workmux__help__claude_commands] )) ||
+_workmux__help__claude_commands() {
+    local commands; commands=(
+'prune:Remove stale entries from ~/.claude.json for deleted worktrees' \
+    )
+    _describe -t commands 'workmux help claude commands' commands "$@"
+}
+(( $+functions[_workmux__help__claude__prune_commands] )) ||
+_workmux__help__claude__prune_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help claude prune commands' commands "$@"
+}
+(( $+functions[_workmux__help__close_commands] )) ||
+_workmux__help__close_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help close commands' commands "$@"
+}
+(( $+functions[_workmux__help__completions_commands] )) ||
+_workmux__help__completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help completions commands' commands "$@"
+}
+(( $+functions[_workmux__help__dashboard_commands] )) ||
+_workmux__help__dashboard_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help dashboard commands' commands "$@"
+}
+(( $+functions[_workmux__help__docs_commands] )) ||
+_workmux__help__docs_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help docs commands' commands "$@"
+}
+(( $+functions[_workmux__help__help_commands] )) ||
+_workmux__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help help commands' commands "$@"
+}
+(( $+functions[_workmux__help__init_commands] )) ||
+_workmux__help__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help init commands' commands "$@"
+}
+(( $+functions[_workmux__help__last-agent_commands] )) ||
+_workmux__help__last-agent_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help last-agent commands' commands "$@"
+}
+(( $+functions[_workmux__help__last-done_commands] )) ||
+_workmux__help__last-done_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help last-done commands' commands "$@"
+}
+(( $+functions[_workmux__help__list_commands] )) ||
+_workmux__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help list commands' commands "$@"
+}
+(( $+functions[_workmux__help__merge_commands] )) ||
+_workmux__help__merge_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help merge commands' commands "$@"
+}
+(( $+functions[_workmux__help__open_commands] )) ||
+_workmux__help__open_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help open commands' commands "$@"
+}
+(( $+functions[_workmux__help__path_commands] )) ||
+_workmux__help__path_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help path commands' commands "$@"
+}
+(( $+functions[_workmux__help__remove_commands] )) ||
+_workmux__help__remove_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help remove commands' commands "$@"
+}
+(( $+functions[_workmux__help__run_commands] )) ||
+_workmux__help__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help run commands' commands "$@"
+}
+(( $+functions[_workmux__help__send_commands] )) ||
+_workmux__help__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help send commands' commands "$@"
+}
+(( $+functions[_workmux__help__set-base_commands] )) ||
+_workmux__help__set-base_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help set-base commands' commands "$@"
+}
+(( $+functions[_workmux__help__set-window-status_commands] )) ||
+_workmux__help__set-window-status_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help set-window-status commands' commands "$@"
+}
+(( $+functions[_workmux__help__status_commands] )) ||
+_workmux__help__status_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help status commands' commands "$@"
+}
+(( $+functions[_workmux__help__wait_commands] )) ||
+_workmux__help__wait_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux help wait commands' commands "$@"
+}
+(( $+functions[_workmux__init_commands] )) ||
+_workmux__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux init commands' commands "$@"
+}
+(( $+functions[_workmux__last-agent_commands] )) ||
+_workmux__last-agent_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux last-agent commands' commands "$@"
+}
+(( $+functions[_workmux__last-done_commands] )) ||
+_workmux__last-done_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux last-done commands' commands "$@"
+}
+(( $+functions[_workmux__list_commands] )) ||
+_workmux__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux list commands' commands "$@"
+}
+(( $+functions[_workmux__merge_commands] )) ||
+_workmux__merge_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux merge commands' commands "$@"
+}
+(( $+functions[_workmux__open_commands] )) ||
+_workmux__open_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux open commands' commands "$@"
+}
+(( $+functions[_workmux__path_commands] )) ||
+_workmux__path_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux path commands' commands "$@"
+}
+(( $+functions[_workmux__remove_commands] )) ||
+_workmux__remove_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux remove commands' commands "$@"
+}
+(( $+functions[_workmux__run_commands] )) ||
+_workmux__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux run commands' commands "$@"
+}
+(( $+functions[_workmux__send_commands] )) ||
+_workmux__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux send commands' commands "$@"
+}
+(( $+functions[_workmux__set-base_commands] )) ||
+_workmux__set-base_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux set-base commands' commands "$@"
+}
+(( $+functions[_workmux__set-window-status_commands] )) ||
+_workmux__set-window-status_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux set-window-status commands' commands "$@"
+}
+(( $+functions[_workmux__status_commands] )) ||
+_workmux__status_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux status commands' commands "$@"
+}
+(( $+functions[_workmux__wait_commands] )) ||
+_workmux__wait_commands() {
+    local commands; commands=()
+    _describe -t commands 'workmux wait commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_workmux" ]; then
+    _workmux "$@"
+else
+    compdef _workmux workmux
+fi
+# Dynamic worktree handle completion (directory names)
+# Used for open/remove/merge/path/close - these accept handles or branch names
+_workmux_handles() {
+    local handles
+    handles=("${(@f)$(workmux _complete-handles 2>/dev/null)}")
+    compadd -a handles
+}
+
+# Dynamic git branch completion for add command
+_workmux_git_branches() {
+    local branches
+    branches=("${(@f)$(workmux _complete-git-branches 2>/dev/null)}")
+    compadd -a branches
+}
+
+# Override completion for commands that need dynamic completion
+_workmux_dynamic() {
+    # Ensure standard zsh array indexing (1-based) regardless of user settings
+    emulate -L zsh
+    setopt extended_glob  # Required for _files glob qualifiers like *(-/)
+    setopt no_nomatch     # Allow failed globs to resolve to empty list
+
+    # Get the subcommand (second word)
+    local cmd="${words[2]}"
+
+    # List of flags that take arguments (values), by command.
+    # We must defer to _workmux for these so it can offer files/custom hints.
+    # Boolean flags are excluded so we can offer positional completions after them.
+    local -a arg_flags
+    case "$cmd" in
+        add)
+            arg_flags=(
+                -p --prompt
+                -P --prompt-file
+                --name
+                -a --agent
+                -n --count
+                --foreach
+                --branch-template
+                --pr
+                # Note: --base is excluded because it needs dynamic completion
+            )
+            ;;
+        open)
+            arg_flags=(
+                -p --prompt
+                -P --prompt-file
+                # Note: -n/--new is a boolean flag, not included here
+            )
+            ;;
+        merge)
+            arg_flags=(
+                # Note: --into is excluded because it needs dynamic completion
+            )
+            ;;
+        *)
+            arg_flags=()
+            ;;
+    esac
+
+    # Check if we are currently completing a flag (starts with -)
+    # OR if the previous word is a flag that requires an argument.
+    if [[ "${words[CURRENT]}" == -* ]] || [[ -n "${arg_flags[(r)${words[CURRENT-1]}]}" ]]; then
+        _workmux "$@"
+        return
+    fi
+
+    # Only handle commands that need dynamic completion
+    case "$cmd" in
+        open|remove|rm|path|merge|close|send|capture|status|wait|run)
+            # Offer handles mixed with any remaining flags
+            _workmux "$@"
+            _workmux_handles
+            ;;
+        add)
+            # Offer git branches mixed with any remaining flags
+            _workmux "$@"
+            _workmux_git_branches
+            ;;
+        *)
+            # For all other commands, strictly use generated completions
+            _workmux "$@"
+            ;;
+    esac
+}
+
+compdef _workmux_dynamic workmux

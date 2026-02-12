@@ -13,6 +13,7 @@ binary_exists() {
 
 fpath+=(
   "${HOME}/.docker/completions"
+  "${HOME}/.config/workmux/completions"
 )
 
 autoload -Uz compinit && compinit
