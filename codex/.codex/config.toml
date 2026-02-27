@@ -1,0 +1,4 @@
+model = "gpt-5.3-codex"
+personality = "pragmatic"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "xhigh"
