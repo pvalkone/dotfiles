@@ -143,6 +143,10 @@ alias oc="opencode"
 alias wm="workmux"
 alias man="qman"
 
+glow() {
+  command glow --pager --width "$COLUMNS" "$@"
+}
+
 export MCFLY_FUZZY=2
 export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
