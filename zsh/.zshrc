@@ -144,7 +144,7 @@ alias wm="workmux"
 alias man="qman"
 
 glow() {
-  command glow --pager --width "$COLUMNS" "$@"
+  command glow --pager --width "$COLUMNS" --style dracula "$@"
 }
 
 export MCFLY_FUZZY=2
