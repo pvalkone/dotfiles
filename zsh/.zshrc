@@ -139,7 +139,7 @@ alias g="git"
 alias vim="nvim"
 alias ls="eza --group-directories-first --icons --color-scale=all --hyperlink"
 alias cat="bat --paging=never"
-alias oc="opencode"
+alias oc="ocx opencode"
 alias wm="workmux"
 alias man="qman"
 
