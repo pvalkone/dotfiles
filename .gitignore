@@ -23,3 +23,5 @@ continue-cli/.continue/*
 !continue-cli/.continue/config.yaml
 opencode/.config/opencode/*
 !opencode/.config/opencode/opencode.jsonc
+!opencode/.config/opencode/profiles
+!opencode/.config/opencode/profiles/default/
