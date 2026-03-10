@@ -22,4 +22,4 @@ pgcli/.config/pgcli/log
 continue-cli/.continue/*
 !continue-cli/.continue/config.yaml
 opencode/.config/opencode/*
-!opencode/.config/opencode/config.json
+!opencode/.config/opencode/opencode.jsonc
