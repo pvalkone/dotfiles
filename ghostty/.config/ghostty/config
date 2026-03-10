@@ -7,3 +7,4 @@ keybind = shift+enter=text:\x1b\r
 window-decoration = client
 shell-integration-features = ssh-env
 font-family = IosevkaTerm NFM
+clipboard-paste-protection = false
