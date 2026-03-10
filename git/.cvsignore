@@ -9,3 +9,4 @@ __pycache__/
 .claude/*
 !.claude/settings.json
 !.claude/ccline/config.toml
+.workmux.yaml
