@@ -72,3 +72,6 @@ disabled = true
 
 [cmake]
 disabled = true
+
+[rust]
+disabled = true
