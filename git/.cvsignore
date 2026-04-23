@@ -10,3 +10,4 @@ __pycache__/
 !.claude/settings.json
 !.claude/ccline/config.toml
 .workmux.yaml
+.factorypath
