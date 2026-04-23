@@ -51,6 +51,8 @@ export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export HOMEBREW_NO_ENV_HINTS=1
 export PERLBREW_ROOT="${HOME}/.perlbrew/perl5"
 export MANPAGER="vim +MANPAGER --not-a-term -"
+export GH_TELEMETRY=false
+export DO_NOT_TRACK=true
 
 case "$(uname -s)" in
   "Darwin")
