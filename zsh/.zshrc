@@ -53,6 +53,7 @@ export PERLBREW_ROOT="${HOME}/.perlbrew/perl5"
 export MANPAGER="vim +MANPAGER --not-a-term -"
 export GH_TELEMETRY=false
 export DO_NOT_TRACK=true
+export SBX_NO_TELEMETRY=1
 
 case "$(uname -s)" in
   "Darwin")
