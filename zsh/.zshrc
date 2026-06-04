@@ -50,6 +50,7 @@ export RUST_BACKTRACE=1
 export STEPPATH="${HOME}/.step"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_REQUIRE_TAP_TRUST=1
 export PERLBREW_ROOT="${HOME}/.perlbrew/perl5"
 export MANPAGER="vim +MANPAGER --not-a-term -"
 export GH_TELEMETRY=false
