@@ -146,6 +146,7 @@ alias cat="bat --paging=never"
 alias oc="ocx opencode"
 alias wm="workmux"
 alias man="qman"
+alias asitop="sudo asitop --color=3"
 
 glow() {
   command glow --pager --width "$COLUMNS" --style dracula "$@"
