@@ -75,3 +75,6 @@ disabled = true
 
 [rust]
 disabled = true
+
+[fortran]
+disabled = true
