@@ -56,6 +56,7 @@ export MANPAGER="vim +MANPAGER --not-a-term -"
 export GH_TELEMETRY=false
 export DO_NOT_TRACK=true
 export SBX_NO_TELEMETRY=1
+export TFENV_CONFIG_DIR="$HOME/.tfenv"
 
 case "$(uname -s)" in
   "Darwin")
