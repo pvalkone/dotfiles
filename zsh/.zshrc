@@ -142,7 +142,7 @@ fi
 alias b="brew"
 alias g="git"
 alias vim="nvim"
-alias ls="eza --group-directories-first --icons --color-scale=all --hyperlink"
+alias ls="eza --group-directories-first --icons --color-scale=all --hyperlink=always"
 alias cat="bat --paging=never"
 alias oc="ocx opencode"
 alias wm="workmux"
