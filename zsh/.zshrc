@@ -139,6 +139,8 @@ if [ $(binary_exists "perlbrew") -eq 0 ]; then
   source "${PERLBREW_ROOT}/etc/bashrc"
 fi
 
+if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
+
 alias b="brew"
 alias g="git"
 alias vim="nvim"
