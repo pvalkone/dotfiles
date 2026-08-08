@@ -15,6 +15,7 @@ fpath+=(
   "${HOME}/.docker/completions"
   "${HOME}/.config/workmux/completions"
   "${HOME}/.config/hcloud/completion/zsh"
+  "${HOME}/.codiff/completions/_codiff"
 )
 
 autoload -Uz compinit && compinit
