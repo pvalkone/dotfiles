@@ -43,7 +43,10 @@
 [push]
   autoSetupRemote = true
 [merge]
-  conflictstyle = zdiff3
+  tool = ec
+[mergetool "ec"]
+  cmd = ec \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = true
 [rerere]
   enabled = true
   autoupdate = true
